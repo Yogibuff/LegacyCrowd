@@ -1,0 +1,14 @@
+<div id="login">
+  <div ng-controller="loginCtrl as login">
+    <form novalidate>
+      <h2>Please Enter Your Login Information</h2>
+      <label>User:</label>
+      <input type="text" ng-model="login.user" placeholder="username">
+
+      <label>Password:</label>
+      <input type="password" ng-model="login.password" placeholder="password">
+    </form>
+      <button ng-click="login-user">Submit</button>
+      <button ng-click="login-close">Close</button>
+  </div> <!-- close login Controller -->
+</div> <!-- close #login -->
