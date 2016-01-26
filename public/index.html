@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/default.css" rel="stylesheet" type="text/css">
+  <title>LegacyCrowd - Fund Your Legacy Today</title>
+</head>
+<!-- link Angular app -->
+<body ng-app="legacyCrowdApp">
+  <div ng-controller="createCampaignCtrl">
+
+  <!-- test directive -->
+  <hello-world></hello-world>
+  <h1>Testing Create Campaign Controller</h1>
+    <input type="checkbox"/>
+    <label class="editing-label" type="text"/>
+    <div class="actions">
+      <a href="">Edit Campaign</a>
+      <a href="" ng-click="helloWorld">Save Campaign</a>
+      <a href="">Delete Campaign</a>
+    </div>
+  </div> <!-- close campaignCreatorCtrl -->
+<script src="../vendor/node_modules/angular/angular.js" type="text/javascript"></script>
+<script src="js/app.js" type="text/javascript"></script>
+<script src="js/hello-world.js" type="text/javascript"></script>
+</body>
+</html>
