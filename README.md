@@ -1,6 +1,6 @@
 # LegacyCrowd
-###### Other crowdfunding sites take your your hard-earned money. 
-#### Only LegacyCrowd Empowers Campaign Contributers as Investors.
+###### While Other crowdfunding sites take your your hard-earned money,
+### LegacyCrowd is a site for Campaign Contributers who Want to be Investors!
 
 * Start a Campaign & Get Funded!
  * Legacy Crowd is a crowdfunding platform that is <b>completely unique.</b> 
