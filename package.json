@@ -1,0 +1,38 @@
+{
+  "name": "legacy-crowd",
+  "version": "1.0.0",
+  "description": "Loan-based Crowdfunding",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": ";"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yogibuff/LegacyCrowd.git"
+  },
+  "keywords": [
+    "\"Angular.js\"",
+    "\"full-stack\"",
+    "\"JavaScript\"",
+    "\"Crowdfund\""
+  ],
+  "author": "Jordan Thimmig",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yogibuff/LegacyCrowd/issues"
+  },
+  "homepage": "https://github.com/Yogibuff/LegacyCrowd#readme",
+  "dependencies": {
+    "angular": "^1.4.9",
+    "chai": "^3.4.1",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-nodemon": "^2.0.4",
+    "gulp-print": "^2.0.1",
+    "mongodb": "^2.1.4",
+    "mongoose": "^4.3.7",
+    "request": "^2.65.0"
+  }
+}
