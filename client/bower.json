@@ -1,0 +1,24 @@
+{
+  "name": "legacy-crowd",
+  "homepage": "https://github.com/Yogibuff/LegacyCrowd",
+  "authors": [
+    "Jordan Thimmig as Yogibuff"
+  ],
+  "description": "Loan-based Crowdfunding",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "Javascript", "Full-Stack", "crowdfunding", "mean", "Angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.9"
+  }
+}

@@ -1,0 +1,12 @@
+/* set default fonts */
+* {
+  font-family: "Myriad Pro", "Trebuchet MS", sans-serif;
+}
+h4, h5, h6 {
+  font-family: "Della Respira";
+}
+
+/* remove hyperlink color */
+a:link, a:visited {
+  text-decoration: none;
+}
