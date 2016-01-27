@@ -10,3 +10,14 @@ h4, h5, h6 {
 a:link, a:visited {
   text-decoration: none;
 }
+
+#page-top {
+  background-image: url('../../images/legacy-home-background.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 100%;
+  width: 100%;
+}
+.test {
+  padding: 10px;
+}
