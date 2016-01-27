@@ -1,6 +1,6 @@
 /* set default fonts */
 * {
-  font-family: "Myriad Pro", "Trebuchet MS", sans-serif;
+  font-family: "Lato", "Trebuchet MS", sans-serif;
 }
 h4, h5, h6 {
   font-family: "Della Respira";
@@ -11,13 +11,61 @@ a:link, a:visited {
   text-decoration: none;
 }
 
-#page-top {
+#homeBackground {
   background-image: url('../../images/legacy-home-background.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: 50% 50%;
   height: 100%;
+  min-height: 200px;
   width: 100%;
 }
-.test {
-  padding: 10px;
+
+#nav-logo {
+  width: 50%;
+}
+
+.navbar-nav>li>a {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#learn-more {
+  position: relative;
+  left: 36%;
+  padding: 15px;
+  background-color: rgb(22, 116, 209);
+}
+
+#create-account {
+  position: relative;
+  left: 45%;
+  padding: 15px;
+  background-color: #399800;
+}
+
+#title {
+  font-size: 50px;
+  letter-spacing: 7px;
+  text-align: center;
+  color: white;
+}
+
+#subtitle{
+  margin-top: 130px;
+  font-size: 20px;
+  letter-spacing: 12px;
+  text-align: center;
+  color: white;
+}
+
+#header {
+  margin-bottom: 50px;
+}
+
+.planning {
+  padding: 30px;
+  text-align: center;
+  color: white;
 }

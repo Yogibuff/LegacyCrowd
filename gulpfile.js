@@ -21,9 +21,7 @@ gulp.watch(['client/**/.js', 'client/*.html', 'client/css/*.css'], ['build']);
 gulp.task('default', function() {
   nodemon({
     script: server,
-  }).on('start', ['build', function() {
-    console.log('Server running on port 3000. Gulp checked for client-side changes.');
-  }]);
+  }).on('start', ['build']);
 });
 
 // concat angular files into all.js
@@ -54,6 +52,7 @@ gulp.task('concat', function() {
 
 // build the index.html page using angular html files, the angular library, and all other libraries
 gulp.task('build', ['angular', 'css', 'views', 'concat'], function() {
+  console.log('Server running on port 3000. Gulp checked for client-side changes.');
   return gulp.src(['client/index.html'])
     .pipe(gulp.dest('server/public'));
 });

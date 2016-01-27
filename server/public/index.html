@@ -20,15 +20,18 @@
 </head>
 <!-- link Angular App -->
 <body ng-app="legacyCrowdApp">
-  <!-- insert Navbar -->
-  <div ng-controller="homepageCtrl as home">
-    <div ng-view></div>
-  </div> <!-- close homepageCtrl -->
-  <!-- testing directives -->
+  <div id="homeBackground"> <!-- page top background -->
+    <div ng-controller="homepageCtrl as home">
+      <homepage><!-- insert Navbar, header, and buttons -->
+      </homepage>
+
+    </div> <!-- close homepageCtrl -->
+  </div> <!-- close #header -->
+
+  <!-- testing directives for campaign creator -->
   <div ng-controller="campaignCreatorCtrl as creator">
-    <div landing-page>
-    </div>
-  <h1 class="test">Testing: Create Campaign Controller</h1>
+
+  <h1 class="text-center">Testing: Create Campaign Controller</h1>
     <ul>
       <li>
         <!-- display campaign name within "label" tag, edit within "input" tag -->
