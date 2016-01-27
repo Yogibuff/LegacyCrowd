@@ -35,19 +35,32 @@ a:link, a:visited {
   position: relative;
   left: 36%;
   padding: 15px;
+  border-color: #286090;
   background-color: rgb(22, 116, 209);
+  color: white;
+}
+
+#learn-more:hover {
+  background-color: rgba(22, 116, 209, 0.7);
 }
 
 #create-account {
   position: relative;
   left: 45%;
   padding: 15px;
-  background-color: #399800;
+  border-color: white;
+  background-color: rgba(51, 51, 51, 0);
+  color: white;
+}
+
+#create-account:hover {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 #title {
   font-size: 50px;
   letter-spacing: 7px;
+  word-spacing: 2.5px;
   text-align: center;
   color: white;
 }
