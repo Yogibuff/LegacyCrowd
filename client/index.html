@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <!-- concatonated node_modules -->
+  <script src="vendor.js"></script>
+  <!-- concatonated angular scripts -->
+  <script src="all.js"></script>
   <!-- External CSS -->
   <link href="css/default.css" rel="stylesheet" type="text/css">
   <title>LegacyCrowd - Fund Your Legacy Today</title>
@@ -17,11 +21,13 @@
 <!-- link Angular App -->
 <body ng-app="legacyCrowdApp">
   <!-- insert Navbar -->
-  
+  <div ng-controller="homepageCtrl as home">
+    <div ng-view></div>
+  </div> <!-- close homepageCtrl -->
   <!-- testing directives -->
   <div ng-controller="campaignCreatorCtrl as creator">
-  <div landing-page>
-  </div>
+    <div landing-page>
+    </div>
   <h1>Testing: Create Campaign Controller</h1>
     <ul>
       <li>
@@ -42,10 +48,5 @@
       </ul>
     </div>
   </div> <!-- close campaignCreatorCtrl -->
-<script src="../vendor/node_modules/angular/angular.js" type="text/javascript"></script>
-<script src="js/app.js" type="text/javascript"></script>
-<script src="js/homepage/homepage.ctrl.js" type="text/javascript"></script>
-<script src="js/login/login.ctrl.js" type="text/javascript"></script>
-<script src="js/campaign-creator/campaign-creator.ctrl.js" type="text/javascript"></script>
 </body>
 </html>

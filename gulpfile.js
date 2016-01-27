@@ -22,7 +22,7 @@ gulp.task('default', function() {
   nodemon({
     script: server,
   }).on('start', function(){
-    console.log('Gulp test actively checking Node.');
+    console.log('Server running on port 3000. Gulp checked for client-side changes.');
   });
 });
 
