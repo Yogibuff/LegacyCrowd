@@ -15,7 +15,7 @@ var angular = [
 ];
 
 // check for modifications within client folder, when changes occur run 'build' task
-gulp.watch(['client/**/.js', 'client/*.html', 'client/css/*.css'], ['build']);
+gulp.watch(['client/**/*.js', 'client/*.html', 'client/css/*.css'], ['build']);
 
 // Test Node server, checks the server is running
 gulp.task('default', function() {
