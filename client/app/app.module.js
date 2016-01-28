@@ -1,1 +1,0 @@
-// angular.module('legacyCrowdApp', [ngRoute]);
