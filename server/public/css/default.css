@@ -24,14 +24,26 @@ ul {
   width: 100%;
 }
 
+#nav-menu {
+  max-height: 70px;
+}
+
+#nav-container {
+  padding-right: 70px;
+  padding-left: 70px;
+}
 #nav-logo {
-  width: 50%;
+  width: 35%;
+  padding: 12px;
+}
+
+.navbar-right {
+  position: absolute;
+  right: 90px;
 }
 
 .navbar-nav>li>a {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  padding-top: 25px;
 }
 
 #learn-more {
@@ -68,7 +80,7 @@ ul {
   color: white;
 }
 
-#subtitle{
+#subtitle {
   margin-top: 130px;
   font-size: 20px;
   letter-spacing: 12px;
@@ -82,6 +94,56 @@ ul {
 
 .build-input {
   padding-right: 20px;
+}
+
+#top-campaigns {
+  height: 720px;
+  width: 100%;
+}
+
+#topCampaignsContainer {
+  width: 100%;
+  max-height: 720px;
+  overflow: hidden;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.cards {
+  max-width: 400px;
+  margin-right: auto;
+  width: 100%;
+}
+
+.cardContainer {
+  width: 290px;
+  margin: 15px;
+  padding: 10px;
+  border: 3px solid rgba(51, 51, 51, 0.4);
+  border-radius: 7px;
+}
+
+.cardImg {
+  width: 285px;
+  height: 190px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 5px;
+}
+
+.cardTitle {
+  font-size: 22px;
+  text-align: center;
+}
+
+.cardBlurb {
+  width: 220px;
+  margin-left: 20px;
+}
+
+.cardLocation {
+  margin-left: 20px;
 }
 
 .planning {

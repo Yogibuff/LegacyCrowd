@@ -18,42 +18,53 @@
   <link href="css/default.css" rel="stylesheet" type="text/css">
   <title>LegacyCrowd - Fund Your Legacy Today</title>
 </head>
-<!-- link Angular App -->
 <body ng-app="legacyCrowdApp">
-  <div id="homeBackground"> <!-- page top background -->
+  <div id="homeBackground">
     <div ng-controller="homepageCtrl as home">
-      <homepage><!-- insert Navbar, header, and buttons -->
+      <homepage>
+      <!-- navbar, header text, and buttons -->
       </homepage>
-
     </div> <!-- close homepageCtrl -->
-  </div> <!-- close #header -->
-
-  <!-- testing directives for campaign creator -->
-  <div ng-controller="campaignCreatorCtrl as creator">
-
-  <h1 class="text-center">Testing: Create Campaign Controller</h1>
-  <div class="text-center">
-    <div goal></div>
-      <ul>
-        <li>
-          <!-- display campaign name within "label" tag, edit within "input" tag -->
-          <label type="text">Sample Campaign Name (editable)</label>
-          <input type="text"/>
-        </li>
-        <li>
-          <label class="editing-body" type="text">Sample Campaign Details (editable)</label>
-          <input type="text"/>
-        </li>
-      </ul>
-      <div> <!-- ng-click test -->
+  </div> <!-- close #homeBackground -->
+  
+  <div id="top-campaigns">
+    <div ng-controller="featuredCampaignCtrl">
+      <br>
+      <!-- top 8 campaigns -->
+      <div top-campaigns>
+      <!-- insert 2 rows of 4 campaign cards each -->
+      </div>
+      <br>
+    </div> <!-- close featuredCampaignCtrl -->
+  </div> <!-- close #top-campaigns -->
+  <br>
+  <div id="campaign-creator-module">
+    <!-- testing directives for campaign creator -->
+    <div ng-controller="campaignCreatorCtrl as creator">
+      <h1 class="text-center">Testing: Create Campaign Controller</h1>
+      <div class="text-center">
+        <div goal></div>
+        <ul>
+          <li>
+            <!-- display campaign name within "label" tag, edit within "input" tag -->
+            <label type="text">Sample Campaign Name (editable)</label>
+            <input type="text"/>
+          </li>
+          <li>
+            <label class="editing-body" type="text">Sample Campaign Details (editable)</label>
+            <input type="text"/>
+          </li>
+        </ul>
         <ul>
           <li>
             <a href="" ng-click="helloWorld()">Hello World: testing ng-click in the console</a>
           </li>
         </ul>
+        <br>
+        <div build></div>
+        <br>
       </div>
-      <div build></div>
-    </div>
-  </div> <!-- close campaignCreatorCtrl -->
+    </div> <!-- close campaignCreatorCtrl -->
+  </div> <!-- close campaign-creator-module -->
 </body>
 </html>

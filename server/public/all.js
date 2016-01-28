@@ -89,10 +89,46 @@ legacy.service('data-service', function() {
 });
 // existing legacyCrowdApp module
 var legacy = angular.module('legacyCrowdApp');
+legacy.controller('featuredCampaignCtrl', function() {
+  vm = this;
+  // add logic and variables
+});
 
+// create a single campaign card to preview an image, name, location
 legacy.directive('campaignCard', function() {
   return {
-    template: '<div>' + '</div>'
+    template:
+    '<div class="container cardContainer">' +
+      /* temporary image and content, replace with campaign data stored in MongoDB */
+      '<img class="img-square cardImg" src="images/legacy-phone-campaign.png">' +
+      '<h2 class="cardTitle">Metronome Technologies</h2>' +
+      '<p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>' +
+      '<a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>' +
+    '</div>'
+  };
+});
+
+// chain campaignCards, creating a row of 4 campaign cards for homepage
+// legacy.directive('featuredCards', function() {
+//   return {
+//     template: '<div campaign-card>' + '</div>' + '<div campaign-card>' + '</div>' + 
+//       '<div campaign-card>' + '</div>' + '<div campaign-card>' + '</div>'
+//   };
+// });
+
+// chain campaignCards, creating a column of 2 campaign cards for homepage
+legacy.directive('featuredCards', function() {
+  return {
+    template: '<div class="col-sm-2 cards">' + ' ' + '<div campaign-card>' + '</div>' + ' ' + 
+      '<div campaign-card>' + '</div>' + ' ' + '</div>'
+  };
+});
+
+// chain featuredCards, creating 2 rows of 4 campaign cards for homepage
+legacy.directive('topCampaigns', function() {
+  return {
+    template: '<div class="col-sm-12" id="topCampaignsContainer">' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + 
+      ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '</div>'
   };
 });
 // injects homepage content into index.html
@@ -107,9 +143,9 @@ legacy.directive('navbar', function() {
     template: 
     '<!-- BEGIN Navbar -->' +
     '<div id="nav-menu" class="navbar navbar-inverse" role="navigation">' +
-     '<div class="container-fluid">' +
+     '<div class="container-fluid" id="nav-container">' +
         '<div class="navbar-header">' +
-          '<div class="navbar-brand hvr-bounce-to-top">' +
+          '<div>' +
             '<a href="#"><img id="nav-logo" src="../../images/legacy-crowd-logo.png"></a>' +
           '</div>' +
           '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-dropdown">' +
