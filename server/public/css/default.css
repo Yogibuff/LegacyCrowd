@@ -5,10 +5,13 @@
 h4, h5, h6 {
   font-family: "Della Respira";
 }
-
 /* remove hyperlink color */
 a:link, a:visited {
   text-decoration: none;
+}
+/* remove list bullets */
+ul {
+  list-style-type: none;
 }
 
 #homeBackground {
@@ -75,6 +78,10 @@ a:link, a:visited {
 
 #header {
   margin-bottom: 50px;
+}
+
+.build-input {
+  padding-right: 20px;
 }
 
 .planning {

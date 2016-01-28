@@ -32,23 +32,27 @@
   <div ng-controller="campaignCreatorCtrl as creator">
 
   <h1 class="text-center">Testing: Create Campaign Controller</h1>
-    <ul>
-      <li>
-        <!-- display campaign name within "label" tag, edit within "input" tag -->
-        <label type="text">Sample Campaign Name (editable)</label>
-        <input type="text"/>
-      </li>
-      <li>
-        <label class="editing-body" type="text">Sample Campaign Details (editable)</label>
-        <input type="text"/>
-      </li>
-    </ul>
-    <div>
+  <div class="text-center">
+    <div goal></div>
       <ul>
         <li>
-          <a href="" ng-click="helloWorld()">Hello World: testing ng-click in the console</a>
+          <!-- display campaign name within "label" tag, edit within "input" tag -->
+          <label type="text">Sample Campaign Name (editable)</label>
+          <input type="text"/>
+        </li>
+        <li>
+          <label class="editing-body" type="text">Sample Campaign Details (editable)</label>
+          <input type="text"/>
         </li>
       </ul>
+      <div> <!-- ng-click test -->
+        <ul>
+          <li>
+            <a href="" ng-click="helloWorld()">Hello World: testing ng-click in the console</a>
+          </li>
+        </ul>
+      </div>
+      <div build></div>
     </div>
   </div> <!-- close campaignCreatorCtrl -->
 </body>
