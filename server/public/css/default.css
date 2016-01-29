@@ -92,6 +92,7 @@ ul {
 }
 
 #header {
+  height: 550px;
   margin-bottom: 50px;
 }
 
@@ -153,4 +154,72 @@ ul {
   padding: 30px;
   text-align: center;
   color: white;
+}
+
+/* Login Modal Styling - overrides several bootstrap defaults */
+#login-modal .modal-dialog {
+  width: 380px;
+}
+
+.modal-open {
+  padding-right: 0px !important;
+  overflow: inherit;
+}
+
+#login-modal input[type=text], input[type=password] {
+  margin-top: 10px;
+}
+
+#login-logo {
+  max-height: 200px;
+  max-width: 240px;
+  background-color: rgba(17, 17, 17, 0.75);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.modal-backdrop.in {
+  opacity: .8;
+  z-index: 0;
+}
+
+.modal-content {
+  background-color: #ececec;
+  border: 1px solid #bdc3c7;
+  border-radius: 0px;
+  outline: 0;
+  margin-top: 40%;
+  padding: 10px;
+}
+
+.modal-header {
+  min-height: 16.5px;
+  padding: 15px;
+  border-bottom: 0px;
+  padding-bottom: 30px;
+}
+
+.modal-body {
+  position: relative;
+  padding: 5px 15px 5px 15px;
+}
+
+.modal-footer {
+  padding: 15px;
+  text-align: left;
+  border-top: 0px;
+}
+
+.checkbox {
+  margin-bottom: 0px;
+}
+
+.btn-link {
+  padding: 5px 10px 0px 0px;
+  color: #95a5a6;
+}
+
+.btn-link:hover, .btn-link:focus {
+  color: #2c3e50;
+  text-decoration: none;
 }
