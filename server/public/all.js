@@ -258,8 +258,8 @@ legacy.directive('loginForm', function() {
               '<div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>' +
               '<span id="text-login-msg">Type your username and password.</span>' +
             '</div>' +
-            '<input id="login-username" class="form-control" type="text" placeholder="Username" required>' +
-            '<input id="login-password" class="form-control" type="password" placeholder="Password" required>' +
+            '<input id="login-username" class="form-control" type="text" placeholder="Username" ng-model="login.username" required>' +
+            '<input id="login-password" class="form-control" type="password" ng-model="login.password" placeholder="Password" required>' +
             '<div class="checkbox">' +
               '<label>' + 
                 '<input type="checkbox">Remember me</input>' +
@@ -329,4 +329,36 @@ legacy.directive('register', function() {
           '</div>' +
         '</form> <!-- close #register-form -->'
   };
+});
+
+/* Login Controls */
+$(function() {
+  // change modals on click
+  $('#login-register-btn').click(function() { 
+    $('#register-form').css('display', 'block'); 
+    $('#login-form').css('display', 'none'); 
+  });
+  $('#register-login-btn').click(function() { 
+    $('#login-form').css('display', 'block'); 
+    $('#lost-form').css('display', 'none');
+    $('#register-form').css('display', 'none');
+  });
+  $('#login-lost-btn').click(function() { 
+    $('#lost-form').css('display', 'block'); 
+    $('#login-form').css('display', 'none');
+  });
+  $('#lost-login-btn').click(function() { 
+    $('#login-form').css('display', 'block');
+    $('#lost-form').css('display', 'none'); 
+  });
+  $('#lost-register-btn').click(function() { 
+    $('#register-form').css('display', 'block');
+    $('#login-form').css('display', 'none');
+    $('#lost-form').css('display', 'none'); 
+  });
+  $('#register-lost-btn').click(function() { 
+    $('#lost-form').css('display', 'block');
+    $('#login-form').css('display', 'none');
+    $('#register-form').css('display', 'none'); 
+  });
 });
