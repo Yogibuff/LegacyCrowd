@@ -12,4 +12,4 @@
 
  <img src="https://occs.mybalsamiq.com/mockups/4068735.png?key=5234a71ca3f53d1b1928aa5347556a91a9c74f59">
 
- <img src="public/images/mean-sponsors.png">
+ <img src="server/public/images/mean-sponsors.png">
