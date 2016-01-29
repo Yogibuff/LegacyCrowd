@@ -26,6 +26,8 @@ ul {
 
 #nav-menu {
   max-height: 70px;
+  border-color: transparent;
+  background-color: transparent;
 }
 
 #nav-container {
@@ -81,7 +83,8 @@ ul {
 }
 
 #subtitle {
-  margin-top: 130px;
+  margin-top: 0px;
+  padding-top: 220px;
   font-size: 20px;
   letter-spacing: 12px;
   text-align: center;

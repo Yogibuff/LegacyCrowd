@@ -11,79 +11,48 @@ angular.module('legacyCrowdApp', []);
 //         controllerAs: "homepage"
 //       });
 //   }]));
-// injects homepage content into index.html
+// existing legacyCrowdApp module
 var legacy = angular.module('legacyCrowdApp');
-legacy.controller('homepageCtrl', function() {
+legacy.controller('featuredCampaignCtrl', function() {
   vm = this;
   // add logic and variables
 });
 
-legacy.directive('navbar', function() {
+// create a single campaign card to preview an image, name, location
+legacy.directive('campaignCard', function() {
   return {
-    template: 
-    '<!-- BEGIN Navbar -->' +
-    '<div id="nav-menu" class="navbar navbar-inverse" role="navigation">' +
-     '<div class="container-fluid" id="nav-container">' +
-        '<div class="navbar-header">' +
-          '<div>' +
-            '<a href="#"><img id="nav-logo" src="../../images/legacy-crowd-logo.png"></a>' +
-          '</div>' +
-          '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-dropdown">' +
-            '<span class="sr-only">Toggle navigation</span>' +
-            '<span class="icon-bar"></span>' +
-            '<span class="icon-bar"></span>' +
-            '<span class="icon-bar"></span>' +
-          '</button>' +
-        '</div>' +
-        '<div class="collapse navbar-collapse navbar-dropdown">' +
-          '<ul class="nav navbar-nav navbar-right">' +
-            '<li>' +
-              '<a href="#">Start Funding</a>' +
-            '</li>' +
-            '<li>' +
-              '<a href="">Make Campaign</a>' +
-            '</li>' +
-            '<li>' +
-              '<a href="">Active Campaigns</a>' +
-            '</li>' +
-            '<li>' +
-              '<a href="">How It Works</a>' +
-            '</li>' +
-          '</ul>' +
-        '</div> <!-- close .navbar-collapse -->' +
-      '</div> <!-- close .container-fluid -->' +
-    '</div> <!-- close .navbar -->'
+    template:
+    '<div class="container cardContainer">' +
+      /* temporary image and content, replace with campaign data stored in MongoDB */
+      '<img class="img-square cardImg" src="images/legacy-phone-campaign.png">' +
+      '<h2 class="cardTitle">Metronome Technologies</h2>' +
+      '<p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>' +
+      '<a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>' +
+    '</div>'
   };
 });
 
-legacy.directive('header', function() {
+// chain campaignCards, creating a row of 4 campaign cards for homepage
+// legacy.directive('featuredCards', function() {
+//   return {
+//     template: '<div campaign-card>' + '</div>' + '<div campaign-card>' + '</div>' + 
+//       '<div campaign-card>' + '</div>' + '<div campaign-card>' + '</div>'
+//   };
+// });
+
+// chain campaignCards, creating a column of 2 campaign cards for homepage
+legacy.directive('featuredCards', function() {
   return {
-    template: '<div id="header">' +
-      '<h3 id="subtitle">Crowdfunded Capital for the Future</h3>' +
-      '<br>' +
-      '<h1 id="title">Invest Ahead of the Curve</h1>' +
-      '<br>' +
-      '<br>' +
-      '<button id="learn-more">Learn More</button>' +
-      '<button id="create-account">Create Account</button>' +
-      '<br>' +
-    '</div> <!-- close #header -->'
+    template: '<div class="col-sm-2 cards">' + ' ' + '<div campaign-card>' + '</div>' + ' ' + 
+      '<div campaign-card>' + '</div>' + ' ' + '</div>'
   };
 });
 
-legacy.directive('homepage', function() {
+// chain featuredCards, creating 2 rows of 4 campaign cards for homepage
+legacy.directive('topCampaigns', function() {
   return {
-    template: '<div navbar>' + '</div>' + ' ' + '<div header>' + '</div>'
-  };
-});
-// existing legacyCrowdApp module
-var legacy = angular.module('legacyCrowdApp');
-
-/* add createCampaign controller with logic for manipulating the campaign creator UI
-and handling user input campaign data within the $scope */
-legacy.controller('loginCtrl', function($scope) {
-  $scope.helloWorld = function() {
-    console.log("testing - helloWorld function within the loginCtrl");
+    template: '<div class="col-sm-12" id="topCampaignsContainer">' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + 
+      ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '</div>'
   };
 });
 // existing legacyCrowdApp module
@@ -162,47 +131,92 @@ legacy.service('data-service', function() {
     console.log('This is my service!');
   });
 });
-// existing legacyCrowdApp module
+// injects homepage content into index.html
 var legacy = angular.module('legacyCrowdApp');
-legacy.controller('featuredCampaignCtrl', function() {
+legacy.controller('homepageCtrl', function() {
   vm = this;
   // add logic and variables
 });
 
-// create a single campaign card to preview an image, name, location
-legacy.directive('campaignCard', function() {
+legacy.directive('navbar', function() {
   return {
-    template:
-    '<div class="container cardContainer">' +
-      /* temporary image and content, replace with campaign data stored in MongoDB */
-      '<img class="img-square cardImg" src="images/legacy-phone-campaign.png">' +
-      '<h2 class="cardTitle">Metronome Technologies</h2>' +
-      '<p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>' +
-      '<a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>' +
-    '</div>'
+    template: 
+    '<!-- BEGIN Navbar -->' +
+    '<div id="nav-menu" class="navbar navbar-fixed-top navbar-inverse" role="navigation">' +
+     '<div class="container-fluid" id="nav-container">' +
+        '<div class="navbar-header">' +
+          '<div>' +
+            '<a href="#"><img id="nav-logo" src="../../images/legacy-crowd-logo.png"></a>' +
+          '</div>' +
+          '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-dropdown">' +
+            '<span class="sr-only">Toggle navigation</span>' +
+            '<span class="icon-bar"></span>' +
+            '<span class="icon-bar"></span>' +
+            '<span class="icon-bar"></span>' +
+          '</button>' +
+        '</div>' +
+        '<div class="collapse navbar-collapse navbar-dropdown">' +
+          '<ul class="nav navbar-nav navbar-right">' +
+            '<li>' +
+              '<a href="#">Start Funding</a>' +
+            '</li>' +
+            '<li>' +
+              '<a href="">Make Campaign</a>' +
+            '</li>' +
+            '<li>' +
+              '<a href="">Active Campaigns</a>' +
+            '</li>' +
+            '<li>' +
+              '<a href="">How It Works</a>' +
+            '</li>' +
+          '</ul>' +
+        '</div> <!-- close .navbar-collapse -->' +
+      '</div> <!-- close .container-fluid -->' +
+    '</div> <!-- close .navbar -->'
   };
 });
 
-// chain campaignCards, creating a row of 4 campaign cards for homepage
-// legacy.directive('featuredCards', function() {
-//   return {
-//     template: '<div campaign-card>' + '</div>' + '<div campaign-card>' + '</div>' + 
-//       '<div campaign-card>' + '</div>' + '<div campaign-card>' + '</div>'
-//   };
-// });
-
-// chain campaignCards, creating a column of 2 campaign cards for homepage
-legacy.directive('featuredCards', function() {
+legacy.directive('header', function() {
   return {
-    template: '<div class="col-sm-2 cards">' + ' ' + '<div campaign-card>' + '</div>' + ' ' + 
-      '<div campaign-card>' + '</div>' + ' ' + '</div>'
+    template: '<div id="header">' +
+      '<h3 id="subtitle">Crowdfunded Capital for the Future</h3>' +
+      '<br>' +
+      '<h1 id="title">Invest Ahead of the Curve</h1>' +
+      '<br>' +
+      '<br>' +
+      '<button id="learn-more">Learn More</button>' +
+      '<button id="create-account">Create Account</button>' +
+      '<br>' +
+    '</div> <!-- close #header -->'
   };
 });
 
-// chain featuredCards, creating 2 rows of 4 campaign cards for homepage
-legacy.directive('topCampaigns', function() {
+legacy.directive('homepage', function() {
   return {
-    template: '<div class="col-sm-12" id="topCampaignsContainer">' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + 
-      ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '</div>'
+    template: '<div navbar>' + '</div>' + ' ' + '<div header>' + '</div>'
+  };
+});
+
+// navbar transparent at page top, change to black background on scroll
+$(function() {
+  $(window).scroll(function() {
+    var navbar = $("#nav-menu"),   
+        scroll = $(window).scrollTop();
+    if (scroll >= 10) {
+        navbar.attr('style', 'background-color: rgba(17, 17, 17, 0.9) !important');
+    }
+    else {
+        navbar.attr('style', 'background-color: transparent !important');
+    }
+  });
+});
+// existing legacyCrowdApp module
+var legacy = angular.module('legacyCrowdApp');
+
+/* add createCampaign controller with logic for manipulating the campaign creator UI
+and handling user input campaign data within the $scope */
+legacy.controller('loginCtrl', function($scope) {
+  $scope.helloWorld = function() {
+    console.log("testing - helloWorld function within the loginCtrl");
   };
 });
