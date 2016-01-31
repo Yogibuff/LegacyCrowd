@@ -107,14 +107,6 @@ legacy.directive('campaignCard', function() {
   };
 });
 
-// chain campaignCards, creating a row of 4 campaign cards for homepage
-// legacy.directive('featuredCards', function() {
-//   return {
-//     template: '<div campaign-card>' + '</div>' + '<div campaign-card>' + '</div>' + 
-//       '<div campaign-card>' + '</div>' + '<div campaign-card>' + '</div>'
-//   };
-// });
-
 // chain campaignCards, creating a column of 2 campaign cards for homepage
 legacy.directive('featuredCards', function() {
   return {
@@ -132,9 +124,13 @@ legacy.directive('topCampaigns', function() {
 });
 // injects homepage content into index.html
 var legacy = angular.module('legacyCrowdApp');
-legacy.controller('homepageCtrl', function() {
-  vm = this;
-  // add logic and variables
+legacy.controller('homepageCtrl', function($scope) {
+  $scope.showLogin = function() {
+    console.log('showLogin function fired');
+    $scope.login = true;
+    $scope.lost = false;
+    $scope.register = false;
+  };
 });
 
 legacy.directive('navbar', function() {
@@ -184,7 +180,7 @@ legacy.directive('header', function() {
       '<br>' +
       '<br>' +
       '<button id="learn-more">Learn More</button>' +
-      '<button id="create-account" data-toggle="modal" data-target="#login-modal">Create Account</button>' +
+      '<button id="create-account" ng-click="showLogin()" data-toggle="modal" data-target="#login-modal">Create Account</button>' +
       '<br>' +
     '</div> <!-- close #header -->'
   };
@@ -217,6 +213,24 @@ and handling user input campaign data within the $scope */
 legacy.controller('loginCtrl', function($scope) {
   $scope.helloWorld = function() {
     console.log("testing - helloWorld function within the loginCtrl");
+  };
+  $scope.showLogin = function() {
+    console.log('showLogin function fired');
+    $scope.login = true;
+    $scope.lost = false;
+    $scope.register = false;
+  };
+  $scope.showLost = function() {
+    console.log('showLost function fired');
+    $scope.login = false;
+    $scope.lost = true;
+    $scope.register = false;
+  };
+  $scope.showRegister = function() {
+    console.log('showRegister function fired');
+    $scope.login = false;
+    $scope.lost = false;
+    $scope.register = true;
   };
 });
 
@@ -252,7 +266,7 @@ legacy.directive('loginForm', function() {
   return {
     template: 
       '<!-- Login Form -->' +
-        '<form id="login-form">' +
+        '<form id="login-form" ng-hide="!login" ng-show="login">' +
           '<div class="modal-body">' +
             '<div id="div-login-msg"> <!-- success/fail msg -->' +
               '<div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>' +
@@ -271,8 +285,8 @@ legacy.directive('loginForm', function() {
               '<button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>' + 
             '</div>' + 
             '<div>' + 
-              '<button id="login-lost-btn" type="button" class="btn btn-link">Lost Password?</button>' + 
-              '<button id="login-register-btn" type="button" class="btn btn-link">Register</button>' + 
+              '<button id="login-lost-btn" type="button" class="btn btn-link" ng-click="showLost()">Lost Password?</button>' + 
+              '<button id="login-register-btn" type="button" class="btn btn-link" ng-click="showRegister()">Register</button>' + 
             '</div>' + 
           '</div> <!-- close .modal-footer -->' + 
         '</form> <!-- close #login-form -->'
@@ -283,7 +297,7 @@ legacy.directive('lostPassword', function() {
   return {
     template: 
       '<!-- Lost Password Form -->' +
-        '<form id="lost-form" style="display:none;">' +
+        '<form id="lost-form" ng-hide="!lost" ng-show="lost">' +
           '<div class="modal-body">' +
             '<div id="div-lost-msg"> <!-- success/fail msg -->' +
               '<div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>' +
@@ -296,8 +310,8 @@ legacy.directive('lostPassword', function() {
              '<button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>' +
             '</div>' +
             '<div>' +
-              '<button id="lost-login-btn" type="button" class="btn btn-link">Log In</button>' +
-              '<button id="lost-register-btn" type="button" class="btn btn-link">Register</button>' +
+              '<button id="lost-login-btn" type="button" class="btn btn-link" ng-click="showLogin()">Log In</button>' +
+              '<button id="lost-register-btn" type="button" class="btn btn-link" ng-click="showRegister()">Register</button>' +
             '</div>' +
           '</div>' +
         '</form> <!-- close #lost-form -->'
@@ -308,7 +322,7 @@ legacy.directive('register', function() {
   return {
     template: 
       '<!-- Register Form -->' +
-        '<form id="register-form" style="display:none;">' +
+        '<form id="register-form" ng-hide="!register" ng-show="register">' +
           '<div class="modal-body">' +
             '<div id="div-register-msg"> <!-- success/fail msg -->' +
               '<div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>' +
@@ -323,42 +337,10 @@ legacy.directive('register', function() {
               '<button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>' +
             '</div>' +
             '<div>' +
-              '<button id="register-login-btn" type="button" class="btn btn-link">Log In</button>' +
-              '<button id="register-lost-btn" type="button" class="btn btn-link">Lost Password?</button>' +
+              '<button id="register-login-btn" type="button" class="btn btn-link" ng-click="login = !login">Log In</button>' +
+              '<button id="register-lost-btn" type="button" class="btn btn-link" ng-click="showLost()">Lost Password?</button>' +
             '</div>' +
           '</div>' +
         '</form> <!-- close #register-form -->'
   };
-});
-
-/* Login Controls */
-$(function() {
-  // change modals on click
-  $('#login-register-btn').click(function() { 
-    $('#register-form').css('display', 'block'); 
-    $('#login-form').css('display', 'none'); 
-  });
-  $('#register-login-btn').click(function() { 
-    $('#login-form').css('display', 'block'); 
-    $('#lost-form').css('display', 'none');
-    $('#register-form').css('display', 'none');
-  });
-  $('#login-lost-btn').click(function() { 
-    $('#lost-form').css('display', 'block'); 
-    $('#login-form').css('display', 'none');
-  });
-  $('#lost-login-btn').click(function() { 
-    $('#login-form').css('display', 'block');
-    $('#lost-form').css('display', 'none'); 
-  });
-  $('#lost-register-btn').click(function() { 
-    $('#register-form').css('display', 'block');
-    $('#login-form').css('display', 'none');
-    $('#lost-form').css('display', 'none'); 
-  });
-  $('#register-lost-btn').click(function() { 
-    $('#lost-form').css('display', 'block');
-    $('#login-form').css('display', 'none');
-    $('#register-form').css('display', 'none'); 
-  });
 });
