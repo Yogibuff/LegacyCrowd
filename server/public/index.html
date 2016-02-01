@@ -9,7 +9,7 @@
   <!-- Bootstrap and Font-Awesome libraries -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <!-- concatonated node_modules -->
   <script src="vendor.js"></script>
   <!-- concatonated angular scripts -->
@@ -44,7 +44,7 @@
   <br>
   <div id="campaign-creator-module">
     <!-- testing directives for campaign creator -->
-    <div ng-controller="campaignCreatorCtrl as creator">
+    <div class="container" ng-controller="campaignCreatorCtrl as creator" style="padding: 50px;">
       <h1 class="text-center">Testing: Create Campaign Controller</h1>
       <div class="text-center">
         <div goal></div>
@@ -71,4 +71,112 @@
     </div> <!-- close campaignCreatorCtrl -->
   </div> <!-- close campaign-creator-module -->
 </body>
+<!-- footer -->
+<footer class="content-info">
+  <div class="container" id="footer-container">
+    <div class="row">      
+      <!-- BEGIN footer content column 1 -->
+      <div class="col col-md-2 col-sm-3 col-xs-6 nav_menu">
+        <h3 class="footer-headers">Investors</h3>
+        <ul class="align-footer-content">
+          <li class="footer-investors">
+            <a href="">Crowdfunding Basics</a>
+          </li>
+          <li class="footer-investors">
+            <a href="">Investor Tips &amp; Tricks</a>
+          </li>
+          <li class="footer-investors">
+            <a href="">When do I get Paid ?</a>
+          </li>
+        </ul>
+      </div> <!-- close footer content column 1 -->
+      <!-- BEGIN footer content column 2 -->
+      <div class="col col-md-2 col-sm-3 col-xs-6 nav_menu">
+        <h3 class="footer-headers">Campaigns</h3>
+        <ul class="align-footer-content">
+          <li class="footer-campaigns">
+            <a href="">Creating a Winner</a>
+          </li>
+          <li class="footer-campaigns">
+            <a href="">Your First Campaign</a>
+          </li>
+          <li class="footer-campaigns">
+            <a href="">Help &amp; Info</a>
+          </li>
+          <li class="footer-campaigns">
+            <a href="">Things You Will Need</a>
+          </li>
+        </ul>
+      </div> <!-- close footer content column 2 -->
+      <!-- BEGIN footer content column 3 -->
+      <div class="col col-md-2 col-sm-3 col-xs-6 nav_menu">
+        <h3 class="footer-headers">How It Works</h3>
+        <ul class="align-footer-content">
+          <li class="footer-info">
+            <a href="">Mongoose</a>
+          </li>
+          <li class="footer-info">
+            <a href="">Express.js</a>
+          </li>
+          <li class="footer-info">
+            <a href="">Angular.js</a>
+          </li>
+          <li class="footer-info">
+            <a href="">Node.js</a>
+          </li>
+          <li>
+            <a href="Yogibuff.com">Meet the Developer</a>
+          </li>
+        </ul>
+      </div> <!-- close footer content column 3 -->
+      <!-- BEGIN footer content column 4 -->
+      <div class="col col-md-2 col-sm-3 col-xs-6 nav_menu">
+        <h3 class="footer-headers">Contact</h3>
+        <ul class="align-footer-content">
+          <li class="footer-contact">
+            <a href="">About Us</a>
+          </li>
+          <li class="footer-contact">
+            <a href="">Our Location</a>
+          </li>
+          <li class="footer-contact">
+            <a href="">Learn More</a>
+          </li>
+        </ul>
+      </div> <!-- close footer content column 4 -->
+      <!-- BEGIN footer subscribe column 5 -->
+      <div class="col col-md-3 col-sm-4 col-xs-6 nav_menu" id="email-signup">
+        <div>
+          <h5 class="footer-headers" id="email-heading">Sign Up for Exclusive LegacyCrowd News and Offers</h5>
+        </div>
+        <div class="email-signup">
+          <input type="email" placeholder="Email Address" id="email-input">
+        </div>
+        <br>
+        <!-- social media links -->
+        <div class="social">
+          <ul id="social-icons">
+            <li><a href="#"><i class="fa fa-lg fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-lg fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-lg fa-github"></i></a></li>
+            <li><a href="#"><i class="fa fa-lg fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-lg fa-google-plus"></i></a></li>
+          </ul>
+        </div>
+      </div> <!-- close footer subscribe column 5 -->
+    </div> <!-- close footer top .row -->
+    <!-- BEGIN footer bottom .row -->
+    <div class="row">
+      <div class="col col-sm-12" id="footer-bottom">
+        <a href=""><img id="footer-logo" src="../../images/legacy-crowd-logo.png"></a>
+        <a href="">Terms & Conditions</a>
+        <span> | </span>
+        <a href="">Privacy</a>
+        <span> | </span>
+        <a href="">Copyright © </a>
+        <span> 2016 LegacyCrowd, Inc. All Rights Reserved</span>
+      </div>
+    </div> <!-- close footer bottom .row -->
+  </div>
+</footer> <!-- close footer -->
 </html>

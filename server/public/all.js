@@ -107,104 +107,28 @@ legacy.directive('campaignCard', function() {
   };
 });
 
-// chain campaignCards, creating a column of 2 campaign cards for homepage
+// temporary - chain campaignCards, creates a column of 2 of the same campaign cards for initial setup
 legacy.directive('featuredCards', function() {
   return {
-    template: '<div class="col-sm-2 cards">' + ' ' + '<div campaign-card>' + '</div>' + ' ' + 
+    template: '<div class="col-xs-2 col-md-3 cards">' + ' ' + '<div campaign-card>' + '</div>' + ' ' + 
       '<div campaign-card>' + '</div>' + ' ' + '</div>'
   };
 });
 
-// chain featuredCards, creating 2 rows of 4 campaign cards for homepage
+// chain featuredCards, creates 2 rows of 4 campaign cards for homepage
 legacy.directive('topCampaigns', function() {
   return {
-    template: '<div class="col-sm-12" id="topCampaignsContainer">' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + 
+    template: '<div class="row" id="topCampaignsContainer">' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + 
       ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '</div>'
   };
 });
-// injects homepage content into index.html
-var legacy = angular.module('legacyCrowdApp');
-legacy.controller('homepageCtrl', function($scope) {
-  $scope.showLogin = function() {
-    console.log('showLogin function fired');
-    $scope.login = true;
-    $scope.lost = false;
-    $scope.register = false;
-  };
-});
 
-legacy.directive('navbar', function() {
-  return {
-    template: 
-    '<!-- Navbar -->' +
-    '<div id="nav-menu" class="navbar navbar-fixed-top navbar-inverse" role="navigation">' +
-     '<div class="container-fluid" id="nav-container">' +
-        '<div class="navbar-header">' +
-          '<div>' +
-            '<a href="#"><img id="nav-logo" src="../../images/legacy-crowd-logo.png"></a>' +
-          '</div>' +
-          '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-dropdown">' +
-            '<span class="sr-only">Toggle navigation</span>' +
-            '<span class="icon-bar"></span>' +
-            '<span class="icon-bar"></span>' +
-            '<span class="icon-bar"></span>' +
-          '</button>' +
-        '</div>' +
-        '<div class="collapse navbar-collapse navbar-dropdown">' +
-          '<ul class="nav navbar-nav navbar-right">' +
-            '<li>' +
-              '<a href="#">Start Funding</a>' +
-            '</li>' +
-            '<li>' +
-              '<a href="">Make Campaign</a>' +
-            '</li>' +
-            '<li>' +
-              '<a href="">Active Campaigns</a>' +
-            '</li>' +
-            '<li>' +
-              '<a href="">How It Works</a>' +
-            '</li>' +
-          '</ul>' +
-        '</div> <!-- close .navbar-collapse -->' +
-      '</div> <!-- close .container-fluid -->' +
-    '</div> <!-- close .navbar -->'
-  };
-});
-
-legacy.directive('header', function() {
-  return {
-    template: '<div id="header">' +
-      '<h3 id="subtitle">Crowdfunded Capital for the Future</h3>' +
-      '<br>' +
-      '<h1 id="title">Invest Ahead of the Curve</h1>' +
-      '<br>' +
-      '<br>' +
-      '<button id="learn-more">Learn More</button>' +
-      '<button id="create-account" ng-click="showLogin()" data-toggle="modal" data-target="#login-modal">Create Account</button>' +
-      '<br>' +
-    '</div> <!-- close #header -->'
-  };
-});
-
-legacy.directive('homepage', function() {
-  return {
-    template: '<div navbar>' + '</div>' + ' ' + '<div header>' + '</div>'
-  };
-});
-
-// navbar transparent at page top, change to black background on scroll
-$(function() {
-  $(window).scroll(function() {
-    var navbar = $("#nav-menu"),   
-        scroll = $(window).scrollTop();
-    if (scroll >= 10) {
-        navbar.attr('style', 'background-color: rgba(17, 17, 17, 0.9) !important');
-    }
-    else {
-        navbar.attr('style', 'background-color: transparent !important');
-    }
-  });
-});
+/* TO DO:
+  - remove featuredCards directive
+  - place 8 single "campaignCard" templates into the 'topCampaigns' directive
+  - pull image, cardTitle, cardBlurb, cardLocation from MongoDB for each individual campaign 
+    -> populate card using the featuredCampaignCtrl
+  - campaign data stored in JSON format within the MongoDB schema db.user.campaign.attribute
 // existing legacyCrowdApp module
 var legacy = angular.module('legacyCrowdApp');
 
@@ -337,10 +261,93 @@ legacy.directive('register', function() {
               '<button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>' +
             '</div>' +
             '<div>' +
-              '<button id="register-login-btn" type="button" class="btn btn-link" ng-click="login = !login">Log In</button>' +
+              '<button id="register-login-btn" type="button" class="btn btn-link" ng-click="showLogin()">Log In</button>' +
               '<button id="register-lost-btn" type="button" class="btn btn-link" ng-click="showLost()">Lost Password?</button>' +
             '</div>' +
           '</div>' +
         '</form> <!-- close #register-form -->'
   };
+});
+// injects homepage content into index.html
+var legacy = angular.module('legacyCrowdApp');
+legacy.controller('homepageCtrl', function($scope) {
+  $scope.showLogin = function() {
+    console.log('showLogin function fired');
+    $scope.login = true;
+    $scope.lost = false;
+    $scope.register = false;
+  };
+});
+
+legacy.directive('navbar', function() {
+  return {
+    template: 
+    '<!-- Navbar -->' +
+    '<div id="nav-menu" class="navbar navbar-fixed-top navbar-inverse" role="navigation">' +
+     '<div class="container-fluid" id="nav-container">' +
+        '<div class="navbar-header">' +
+          '<div>' +
+            '<a href="#"><img id="nav-logo" src="../../images/legacy-crowd-logo.png"></a>' +
+          '</div>' +
+          '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-dropdown">' +
+            '<span class="sr-only">Toggle navigation</span>' +
+            '<span class="icon-bar"></span>' +
+            '<span class="icon-bar"></span>' +
+            '<span class="icon-bar"></span>' +
+          '</button>' +
+        '</div>' +
+        '<div class="collapse navbar-collapse navbar-dropdown">' +
+          '<ul class="nav navbar-nav navbar-right">' +
+            '<li>' +
+              '<a href="#">Start Funding</a>' +
+            '</li>' +
+            '<li>' +
+              '<a href="">Make Campaign</a>' +
+            '</li>' +
+            '<li>' +
+              '<a href="">Active Campaigns</a>' +
+            '</li>' +
+            '<li>' +
+              '<a href="">How It Works</a>' +
+            '</li>' +
+          '</ul>' +
+        '</div> <!-- close .navbar-collapse -->' +
+      '</div> <!-- close .container-fluid -->' +
+    '</div> <!-- close .navbar -->'
+  };
+});
+
+legacy.directive('header', function() {
+  return {
+    template: '<div id="header">' +
+      '<h3 id="subtitle">Crowdfunded Capital for the Future</h3>' +
+      '<br>' +
+      '<h1 id="title">Invest Ahead of the Curve</h1>' +
+      '<br>' +
+      '<br>' +
+      '<button id="learn-more">Learn More</button>' +
+      '<button id="create-account" ng-click="showLogin()" data-toggle="modal" data-target="#login-modal">Create Account</button>' +
+      '<br>' +
+    '</div> <!-- close #header -->'
+  };
+});
+
+legacy.directive('homepage', function() {
+  return {
+    template: '<div navbar>' + '</div>' + ' ' + '<div header>' + '</div>'
+  };
+});
+
+// navbar transparent at page top, change to black background on scroll
+$(function() {
+  $(window).scroll(function() {
+    var navbar = $("#nav-menu"),   
+        scroll = $(window).scrollTop();
+    if (scroll >= 10) {
+        navbar.attr('style', 'background-color: rgba(17, 17, 17, 0.9) !important');
+    }
+    else {
+        navbar.attr('style', 'background-color: transparent !important');
+    }
+  });
 });

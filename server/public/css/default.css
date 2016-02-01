@@ -14,6 +14,7 @@ ul {
   list-style-type: none;
 }
 
+/* homepage styles */
 #homeBackground {
   background-image: url('../../images/legacy-home-background.jpg');
   background-size: cover;
@@ -23,13 +24,11 @@ ul {
   min-height: 200px;
   width: 100%;
 }
-
 #nav-menu {
   max-height: 70px;
   border-color: transparent;
   background-color: transparent;
 }
-
 #nav-container {
   padding-right: 70px;
   padding-left: 70px;
@@ -38,16 +37,13 @@ ul {
   width: 35%;
   padding: 12px;
 }
-
 .navbar-right {
   position: absolute;
   right: 90px;
 }
-
 .navbar-nav>li>a {
   padding-top: 25px;
 }
-
 #learn-more {
   position: relative;
   left: 36%;
@@ -56,11 +52,9 @@ ul {
   background-color: rgb(22, 116, 209);
   color: white;
 }
-
 #learn-more:hover {
   background-color: rgba(22, 116, 209, 0.7);
 }
-
 #create-account {
   position: relative;
   left: 45%;
@@ -69,11 +63,11 @@ ul {
   background-color: rgba(51, 51, 51, 0);
   color: white;
 }
-
 #create-account:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+/* campaign card styles */
 #title {
   font-size: 50px;
   letter-spacing: 7px;
@@ -81,7 +75,6 @@ ul {
   text-align: center;
   color: white;
 }
-
 #subtitle {
   margin-top: 0px;
   padding-top: 220px;
@@ -90,86 +83,132 @@ ul {
   text-align: center;
   color: white;
 }
-
 #header {
   height: 550px;
   margin-bottom: 50px;
 }
-
 .build-input {
   padding-right: 20px;
 }
-
 #top-campaigns {
   height: 720px;
   width: 100%;
 }
-
 #topCampaignsContainer {
   width: 100%;
-  max-height: 720px;
+  max-height: 800px;
   overflow: hidden;
   padding-left: 50px;
   padding-top: 10px;
   padding-bottom: 20px;
 }
-
 .cards {
   max-width: 400px;
-  margin-right: auto;
-  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
 }
-
 .cardContainer {
-  width: 290px;
-  margin: 15px;
+  width: 230px;
+  margin: 25px auto;
   padding: 10px;
   border: 3px solid rgba(51, 51, 51, 0.4);
   border-radius: 7px;
 }
-
 .cardImg {
-  width: 285px;
+  width: 225px;
   height: 190px;
   margin-top: -10px;
   margin-left: -10px;
   border-radius: 5px;
 }
-
 .cardTitle {
   font-size: 22px;
   text-align: center;
 }
-
 .cardBlurb {
-  width: 220px;
-  margin-left: 20px;
+  margin-left: 3px;
 }
-
 .cardLocation {
   margin-left: 20px;
+  color: #337ab7;
 }
-
 .planning {
   padding: 30px;
   text-align: center;
   color: white;
 }
 
+/* footer styles */
+#footer-container {
+  padding-top: 40px;
+}
+#footer-logo {
+  width: 150px;
+  margin: 40px;
+}
+.footer-headers {
+  margin-bottom: 15px;
+  color: aliceblue;
+}
+#footer-bottom > span {
+  color: aliceblue;
+}
+.align-footer-content {
+  padding-left: 0px;
+}
+.align-footer-content > li > a {
+  color: #69A4E6;
+  line-height: 1.75;
+}
+.align-footer-content > li > a:hover,
+#footer-bottom > a:hover {
+  color: aliceblue;
+}
+.content-info {
+  background: rgba(17,17,17,0.9);
+}
+#email-signup {
+  margin-top: 10px;
+  margin-left: 30px;
+}
+#email-input {
+  padding-left: 10px;
+  width: 95%;
+}
+#email-input:hover{
+  background-color: aliceblue;
+}
+#email-heading {
+  padding-left: 3px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: 1.5px;
+  word-spacing: 2px;
+}
+#social-icons {
+  display: flex;
+  padding-left: 30px;
+}
+#social-icons > li {
+  padding: 8px;
+}
+
+/* color social media icons on hover */
+#social-icons > li > a > .fa {
+  font-size: 1.9em;
+}
+#social-icons > li > a > i.fa:hover {
+color: aliceblue;
+}
+
 /* Login Modal Styling - overrides several bootstrap defaults */
 #login-modal .modal-dialog {
   width: 380px;
 }
-
-.modal-open {
-  padding-right: 0px !important;
-  overflow: inherit;
-}
-
 #login-modal input[type=text], input[type=password] {
   margin-top: 10px;
 }
-
 #login-logo {
   max-height: 200px;
   max-width: 240px;
@@ -177,12 +216,14 @@ ul {
   padding: 10px;
   border-radius: 10px;
 }
-
+.modal-open {
+  padding-right: 0px !important;
+  overflow: inherit;
+}
 .modal-backdrop.in {
   opacity: .8;
   z-index: 0;
 }
-
 .modal-content {
   background-color: #ececec;
   border: 1px solid #bdc3c7;
@@ -191,34 +232,28 @@ ul {
   margin-top: 40%;
   padding: 10px;
 }
-
 .modal-header {
   min-height: 16.5px;
   padding: 15px;
   border-bottom: 0px;
   padding-bottom: 30px;
 }
-
 .modal-body {
   position: relative;
   padding: 5px 15px 5px 15px;
 }
-
 .modal-footer {
   padding: 15px;
   text-align: left;
   border-top: 0px;
 }
-
 .checkbox {
   margin-bottom: 0px;
 }
-
 .btn-link {
   padding: 5px 10px 0px 0px;
   color: #95a5a6;
 }
-
 .btn-link:hover, .btn-link:focus {
   color: #2c3e50;
   text-decoration: none;
