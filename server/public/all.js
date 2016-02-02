@@ -13,6 +13,49 @@ angular.module('legacyCrowdApp', []);
 //   }]));
 // existing legacyCrowdApp module
 var legacy = angular.module('legacyCrowdApp');
+legacy.controller('featuredCampaignCtrl', function() {
+  vm = this;
+  // add logic and variables
+});
+
+// create a single campaign card to preview an image, name, location
+legacy.directive('campaignCard', function() {
+  return {
+    template:
+    '<div class="container cardContainer">' +
+      /* temporary image and content, replace with campaign data stored in MongoDB */
+      '<img class="img-square cardImg" src="images/legacy-phone-campaign.png">' +
+      '<h2 class="cardTitle">Metronome Technologies</h2>' +
+      '<p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>' +
+      '<a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>' +
+    '</div>'
+  };
+});
+
+// temporary - chain campaignCards, creates a column of 2 of the same campaign cards for initial setup
+legacy.directive('featuredCards', function() {
+  return {
+    template: '<div class="col-xs-2 col-md-3 cards">' + ' ' + '<div campaign-card>' + '</div>' + ' ' + 
+      '<div campaign-card>' + '</div>' + ' ' + '</div>'
+  };
+});
+
+// chain featuredCards, creates 2 rows of 4 campaign cards for homepage
+legacy.directive('topCampaigns', function() {
+  return {
+    template: '<div class="row" id="topCampaignsContainer">' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + 
+      ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '</div>'
+  };
+});
+
+/* TO DO:
+  - remove featuredCards directive
+  - place 8 single "campaignCard" templates into the 'topCampaigns' directive
+  - pull image, cardTitle, cardBlurb, cardLocation from MongoDB for each individual campaign 
+    -> populate card using the featuredCampaignCtrl
+  - campaign data stored in JSON format within the MongoDB schema db.user.campaign.attribute
+// existing legacyCrowdApp module
+var legacy = angular.module('legacyCrowdApp');
 
 /* add createCampaign controller with logic for manipulating the campaign creator UI
 and handling user input campaign data within the $scope */
@@ -86,49 +129,6 @@ legacy.service('data-service', function() {
     console.log('This is my service!');
   });
 });
-// existing legacyCrowdApp module
-var legacy = angular.module('legacyCrowdApp');
-legacy.controller('featuredCampaignCtrl', function() {
-  vm = this;
-  // add logic and variables
-});
-
-// create a single campaign card to preview an image, name, location
-legacy.directive('campaignCard', function() {
-  return {
-    template:
-    '<div class="container cardContainer">' +
-      /* temporary image and content, replace with campaign data stored in MongoDB */
-      '<img class="img-square cardImg" src="images/legacy-phone-campaign.png">' +
-      '<h2 class="cardTitle">Metronome Technologies</h2>' +
-      '<p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>' +
-      '<a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>' +
-    '</div>'
-  };
-});
-
-// temporary - chain campaignCards, creates a column of 2 of the same campaign cards for initial setup
-legacy.directive('featuredCards', function() {
-  return {
-    template: '<div class="col-xs-2 col-md-3 cards">' + ' ' + '<div campaign-card>' + '</div>' + ' ' + 
-      '<div campaign-card>' + '</div>' + ' ' + '</div>'
-  };
-});
-
-// chain featuredCards, creates 2 rows of 4 campaign cards for homepage
-legacy.directive('topCampaigns', function() {
-  return {
-    template: '<div class="row" id="topCampaignsContainer">' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + 
-      ' ' + '<div featured-cards>' + '</div>' + ' ' + '<div featured-cards>' + '</div>' + ' ' + '</div>'
-  };
-});
-
-/* TO DO:
-  - remove featuredCards directive
-  - place 8 single "campaignCard" templates into the 'topCampaigns' directive
-  - pull image, cardTitle, cardBlurb, cardLocation from MongoDB for each individual campaign 
-    -> populate card using the featuredCampaignCtrl
-  - campaign data stored in JSON format within the MongoDB schema db.user.campaign.attribute
 // injects homepage content into index.html
 var legacy = angular.module('legacyCrowdApp');
 legacy.controller('homepageCtrl', function($scope) {
