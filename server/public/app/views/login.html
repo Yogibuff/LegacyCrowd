@@ -1,0 +1,83 @@
+<div ng-controller="loginCtrl as login">
+  <!-- Login Modal -->
+  <div id="login">
+    <div id="login-modal" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" align="center">
+            <img id="login-logo" src="../../images/legacy-crowd-logo.png">
+            <button type="button" class="close" data-dismiss="modal">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </div>
+          <div id="login-container">
+          <!-- Login Form -->
+          <form id="login-form" ng-hide="!login" ng-show="login">
+            <div class="modal-body">
+              <div id="div-login-msg"> <!-- success/fail msg -->
+                <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                <span id="text-login-msg">Type your username and password.</span>
+              </div>
+              <input id="login-username" class="form-control" type="text" placeholder="Username" ng-model="login.username" required>
+              <input id="login-password" class="form-control" type="password" ng-model="login.password" placeholder="Password" required>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox">Remember me</input>
+                </label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+              </div>
+              <div>
+                <button id="login-lost-btn" type="button" class="btn btn-link" ng-click="showLost()">Lost Password?</button> 
+                <button id="login-register-btn" type="button" class="btn btn-link" ng-click="showRegister()">Register</button> 
+              </div>
+            </div> <!-- close .modal-footer -->
+          </form> <!-- close #login-form -->
+          <!-- Lost Password Form -->
+          <form id="lost-form" ng-hide="!lost" ng-show="lost">
+            <div class="modal-body">
+              <div id="div-lost-msg"> <!-- success/fail msg -->
+                <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                <span id="text-lost-msg">Enter your e-mail to recover your password.</span>
+              </div>
+              <input id="lost-email" class="form-control" type="text" placeholder="e-mail" required>
+            </div>
+            <div class="modal-footer">
+              <div>
+               <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+              </div>
+              <div>
+                <button id="lost-login-btn" type="button" class="btn btn-link" ng-click="showLogin()">Log In</button>
+                <button id="lost-register-btn" type="button" class="btn btn-link" ng-click="showRegister()">Register</button>
+              </div>
+            </div>
+          </form> <!-- close #lost-form -->
+          <!-- Register Form -->
+          <form id="register-form" ng-hide="!register" ng-show="register">
+            <div class="modal-body">
+              <div id="div-register-msg"> <!-- success/fail msg -->
+                <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
+                <span id="text-register-msg">Register an account.</span>
+              </div>
+              <input id="register-username" class="form-control" type="text" placeholder="Username" required>
+              <input id="register-email" class="form-control" type="text" placeholder="E-Mail" required>
+              <input id="register-password" class="form-control" type="password" placeholder="Password" required>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+              </div>
+              <div>
+                <button id="register-login-btn" type="button" class="btn btn-link" ng-click="showLogin()">Log In</button>
+                <button id="register-lost-btn" type="button" class="btn btn-link" ng-click="showLost()">Lost Password?</button>
+              </div>
+            </div>
+          </form> <!-- close #register-form -->
+        </div> <!-- close .modal-content -->
+      </div> <!-- close .modal-dialogue -->
+    </div> <!-- close #login-modal -->
+  </div> <!-- close #login -->
+</div> <!-- close loginCtrl -->
