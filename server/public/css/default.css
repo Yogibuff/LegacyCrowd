@@ -5,17 +5,24 @@
 h4, h5, h6 {
   font-family: "Della Respira";
 }
+
 /* remove hyperlink color */
 a:link, a:visited {
   text-decoration: none;
 }
+
 /* remove list bullets */
 ul {
   list-style-type: none;
 }
 
+/* extra space for static navbar */
+body {
+  margin-top: 69px;
+}
+
 /* homepage styles */
-#homeBackground {
+#home-background {
   background-image: url('../../images/legacy-home-background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -25,9 +32,9 @@ ul {
   width: 100%;
 }
 #nav-menu {
-  max-height: 70px;
+  max-height: 69px;
   border-color: transparent;
-  background-color: transparent;
+  background-color: rgb(17, 17, 17);
 }
 #nav-container {
   padding-right: 70px;
@@ -36,14 +43,60 @@ ul {
 #nav-logo {
   width: 35%;
   padding: 12px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .navbar-right {
   position: absolute;
   right: 90px;
 }
-.navbar-nav>li>a {
+.navbar-nav > li > a {
   padding-top: 25px;
+  /* override bootstrap default color */
+  color: #EEE !important;
 }
+
+/* nav button animation */
+.nav-hover {
+  padding-bottom: 9px;
+  vertical-align: middle;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition-property: color;
+  transition-duration: 0.3s;
+}
+.nav-hover:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  background: #2098d1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+/* text color on hover */
+.nav-hover:hover, 
+.nav-hover:focus, 
+.nav-hover:active {
+  color: white;
+}
+/* return to normal scale */
+.nav-hover:hover:before, 
+.nav-hover:focus:before, 
+.nav-hover:active:before {
+  transform: scaleY(1);
+}
+
+/* homepage middle content */
 #learn-more {
   position: relative;
   left: 36%;
@@ -91,8 +144,9 @@ ul {
   padding-right: 20px;
 }
 #top-campaigns {
-  height: 720px;
+  height: 800px;
   width: 100%;
+  margin-bottom: 560px;
 }
 #topCampaignsContainer {
   width: 100%;
@@ -138,7 +192,68 @@ ul {
   color: white;
 }
 
+/* video hero */
+#video-hero {
+  max-height: 520px;
+  overflow-y: hidden;
+}
+.video-container {
+  position: relative;
+  left: 0px;
+  width: 100%;
+  background-attachment: fixed;
+}
+#video-frame {
+  max-width: 100%; 
+  margin-left: 0px; 
+  margin-top: -40px;
+  height: 720px;
+}
+.video-overlay {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  bottom: 5px;
+  right: 0;
+  background-color: rgba(0,13,61,0.8);
+}
+#video-hero-content {
+  color: white;
+  padding-top: 120px;
+}
+#video-hero-content > h1 {
+  font-size: 70px;
+  margin-bottom: 30px;
+}
+#video-hero-content > p {
+  padding: 10px 240px 15px 240px;
+  font-size: 17px;
+  line-height: 2.75;
+}
+#get-started {
+  position: relative;
+  padding: 15px 30px;
+  left: 0;
+  font-size: 16px;
+  border-color: white;
+  background-color: rgba(51, 51, 51, 0);
+  color: white;
+  font-weight: 600;
+}
+#get-started:hover {
+  background-color: white;
+  color: rgb(22, 116, 209);
+}
+
+#sponsors {
+  margin: 40px auto;
+  padding-left: 5%;
+}
+
 /* footer styles */
+footer {
+  margin-top: 20px;
+}
 #footer-container {
   padding-top: 40px;
 }
@@ -167,18 +282,26 @@ ul {
 .content-info {
   background: rgba(17,17,17,0.9);
 }
-#email-signup {
+#footer-signup {
   margin-top: 10px;
   margin-left: 30px;
+}
+#email-flexbox {
+  display: flex;
+}
+#email-flexbox > button {
+  background-color: rgb(17, 17, 17);
+  color: white;
+  border-color: whitesmoke;
 }
 #email-input {
   padding-left: 10px;
   width: 95%;
 }
-#email-input:hover{
+#email-input:hover {
   background-color: aliceblue;
 }
-#email-signup > div :nth-child(1) {
+#footer-signup > div :nth-child(1) {
   margin-bottom: 0px;
 }
 .email-heading {
@@ -202,7 +325,7 @@ ul {
   font-size: 1.9em;
 }
 #social-icons > li > a > i.fa:hover {
-color: aliceblue;
+  color: aliceblue;
 }
 
 /* Login Modal Styling - overrides several bootstrap defaults */
@@ -260,4 +383,33 @@ color: aliceblue;
 .btn-link:hover, .btn-link:focus {
   color: #2c3e50;
   text-decoration: none;
+}
+
+#back-to-top {
+  position: fixed;
+  right: 15px;
+  bottom: 10px;
+  margin: 0;
+  z-index: 10;
+}
+.scroll-up {
+  font: normal normal normal 30px;
+  margin: 0;
+  color: white;
+  text-align: center;
+  background-color: #373737;
+  opacity: .9;
+  height: 30px;
+  width: 40px;
+  display: none;
+}
+
+/* campaign-builder styles */
+#campaign-creator {
+  text-align: center;
+  padding-top: 30px;
+}
+#campaign-creator > h1 {
+  text-align: center;
+  padding-top: 30px;
 }

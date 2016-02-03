@@ -1,183 +1,262 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- JQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <!-- Bootstrap and Font-Awesome libraries -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <!-- concatonated node_modules -->
-  <script src="vendor.js"></script>
-  <!-- concatonated angular scripts -->
-  <script src="all.js"></script>
-  <!-- External CSS -->
-  <link href="css/default.css" rel="stylesheet" type="text/css">
-  <title>LegacyCrowd - Fund Your Legacy Today</title>
-</head>
-<body ng-app="legacyCrowdApp">
-  <div id="homeBackground">
-    <div ng-controller="homepageCtrl as home">
-      <homepage>
-      <!-- navbar, header text, and buttons -->
-      </homepage>
-    </div> <!-- close homepageCtrl -->
-  </div> <!-- close #homeBackground -->
-  
-  <div id="top-campaigns">
-    <div ng-controller="featuredCampaignCtrl">
-      <br>
-      <!-- top 8 campaigns -->
-      <div top-campaigns>
-      <!-- insert 2 rows of 4 campaign cards each -->
-      </div>
-      <br>
-    </div> <!-- close featuredCampaignCtrl -->
-  </div> <!-- close #top-campaigns -->
-  <br>
-  <div ng-controller="loginCtrl as login">
-    <div login-modal></div>
-  </div> <!-- close loginCtrl -->
-  <br>
-  <div id="campaign-creator-module">
-    <!-- testing directives for campaign creator -->
-    <div class="container" ng-controller="campaignCreatorCtrl as creator" style="padding: 50px;">
-      <h1 class="text-center">Testing: Create Campaign Controller</h1>
-      <div class="text-center">
-        <div goal></div>
-        <ul>
-          <li>
-            <!-- display campaign name within "label" tag, edit within "input" tag -->
-            <label type="text">Sample Campaign Name (editable)</label>
-            <input type="text">
-          </li>
-          <li>
-            <label class="editing-body" type="text">Sample Campaign Details (editable)</label>
-            <input type="text">
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="" ng-click="helloWorld()">Hello World: testing ng-click in the console</a>
-          </li>
-        </ul>
-        <br>
-        <div build></div>
-        <br>
-      </div>
-    </div> <!-- close campaignCreatorCtrl -->
-  </div> <!-- close campaign-creator-module -->
-</body>
-<!-- footer -->
-<footer class="content-info">
-  <div class="container" id="footer-container">
-    <div class="row">      
-      <!-- BEGIN footer content column 1 -->
-      <div class="col col-md-2 col-sm-3 col-xs-6 nav_menu">
-        <h3 class="footer-headers">Investors</h3>
-        <ul class="align-footer-content">
-          <li class="footer-investors">
-            <a href="">Crowdfunding Basics</a>
-          </li>
-          <li class="footer-investors">
-            <a href="">Investor Tips &amp; Tricks</a>
-          </li>
-          <li class="footer-investors">
-            <a href="">When do I get Paid ?</a>
-          </li>
-        </ul>
-      </div> <!-- close footer content column 1 -->
-      <!-- BEGIN footer content column 2 -->
-      <div class="col col-md-2 col-sm-3 col-xs-6 nav_menu">
-        <h3 class="footer-headers">Campaigns</h3>
-        <ul class="align-footer-content">
-          <li class="footer-campaigns">
-            <a href="">Creating a Winner</a>
-          </li>
-          <li class="footer-campaigns">
-            <a href="">Your First Campaign</a>
-          </li>
-          <li class="footer-campaigns">
-            <a href="">Help &amp; Info</a>
-          </li>
-          <li class="footer-campaigns">
-            <a href="">Things You Will Need</a>
-          </li>
-        </ul>
-      </div> <!-- close footer content column 2 -->
-      <!-- BEGIN footer content column 3 -->
-      <div class="col col-md-2 col-sm-3 col-xs-6 nav_menu">
-        <h3 class="footer-headers">How It Works</h3>
-        <ul class="align-footer-content">
-          <li class="footer-info">
-            <a href="">Mongoose</a>
-          </li>
-          <li class="footer-info">
-            <a href="">Express.js</a>
-          </li>
-          <li class="footer-info">
-            <a href="">Angular.js</a>
-          </li>
-          <li class="footer-info">
-            <a href="">Node.js</a>
-          </li>
-          <li>
-            <a href="Yogibuff.com">Meet the Developer</a>
-          </li>
-        </ul>
-      </div> <!-- close footer content column 3 -->
-      <!-- BEGIN footer content column 4 -->
-      <div class="col col-md-2 col-sm-3 col-xs-6 nav_menu">
-        <h3 class="footer-headers">Contact</h3>
-        <ul class="align-footer-content">
-          <li class="footer-contact">
-            <a href="">About Us</a>
-          </li>
-          <li class="footer-contact">
-            <a href="">Our Location</a>
-          </li>
-          <li class="footer-contact">
-            <a href="">Learn More</a>
-          </li>
-        </ul>
-      </div> <!-- close footer content column 4 -->
-      <!-- BEGIN footer subscribe column 5 -->
-      <div class="col col-md-3 col-sm-4 col-xs-6 nav_menu" id="email-signup">
-        <div>
-          <h5 class="footer-headers email-heading">Recieve the Latest</h5>
-          <h5 class="footer-headers email-heading">Campaign News and Offers</h5>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- JQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Bootstrap and Font-Awesome libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!-- concatenated node_modules -->
+    <script src="vendor.js"></script>
+    <!-- concatenated angular scripts -->
+    <script src="all.js"></script>
+    <!-- External CSS -->
+    <link href="css/default.css" rel="stylesheet" type="text/css">
+    <title>LegacyCrowd - Fund Your Legacy Today</title>
+  </head>
+  <body ng-app="legacyCrowdApp">
+    <!-- Navbar -->
+    <div id="nav-menu" class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+     <div class="container-fluid" id="nav-container">
+        <div class="navbar-header">
+          <div>
+            <a href="/#/"><img id="nav-logo" src="../../images/legacy-crowd-logo.png"></a>
+          </div>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-dropdown">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
-        <div class="email-signup">
-          <input type="email" placeholder="Email Address" id="email-input">
-        </div>
-        <br>
-        <!-- social media links -->
-        <div class="social">
-          <ul id="social-icons">
-            <li><a href="#"><i class="fa fa-lg fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-lg fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-lg fa-github"></i></a></li>
-            <li><a href="#"><i class="fa fa-lg fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fa fa-lg fa-google-plus"></i></a></li>
+        <div class="collapse navbar-collapse navbar-dropdown" ng-controller="scrollCtrl">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-hover">
+              <a href="/#/" ng-click="scrollTop()">Start Funding</a>
+            </li>
+            <li class="nav-hover">
+              <a href="/#/campaign-creator" ng-click="scrollTop()">Make Campaign</a>
+            </li>
+            <li class="nav-hover">
+              <a href="/#/" ng-click="scrollTop()">Active Campaigns</a>
+            </li>
+            <li class="nav-hover">
+              <a href="" data-toggle="modal" data-target="#login-modal">Login</a>
+            </li>
           </ul>
+        </div> <!-- close .navbar-collapse -->
+      </div> <!-- close .container-fluid -->
+    </div> <!-- close .navbar -->
+    
+    <ng-view></ng-view>
+    
+    <!-- footer -->
+    <footer>
+      <!-- Login Modal -->
+      <div id="login" ng-controller="loginCtrl as login">
+        <div id="login-modal" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" align="center">
+                <img id="login-logo" src="../../images/legacy-crowd-logo.png">
+                <button type="button" class="close" data-dismiss="modal">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </div>
+              <div id="login-container">
+              <!-- Login Form -->
+              <form id="login-form" ng-hide="!login" ng-show="login">
+                <div class="modal-body">
+                  <div id="div-login-msg"> <!-- success/fail msg -->
+                    <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                    <span id="text-login-msg">Type your username and password.</span>
+                  </div>
+                  <input id="login-username" class="form-control" type="text" placeholder="Username" ng-model="login.username" required>
+                  <input id="login-password" class="form-control" type="password" ng-model="login.password" placeholder="Password" required>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox">Remember me</input>
+                    </label>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                  </div>
+                  <div>
+                    <button id="login-lost-btn" type="button" class="btn btn-link" ng-click="showLost()">Lost Password?</button> 
+                    <button id="login-register-btn" type="button" class="btn btn-link" ng-click="showRegister()">Register</button> 
+                  </div>
+                </div> <!-- close .modal-footer -->
+              </form> <!-- close #login-form -->
+              <!-- Lost Password Form -->
+              <form id="lost-form" ng-hide="!lost" ng-show="lost">
+                <div class="modal-body">
+                  <div id="div-lost-msg"> <!-- success/fail msg -->
+                    <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                    <span id="text-lost-msg">Enter your e-mail to recover your password.</span>
+                  </div>
+                  <input id="lost-email" class="form-control" type="text" placeholder="e-mail" required>
+                </div>
+                <div class="modal-footer">
+                  <div>
+                   <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+                  </div>
+                  <div>
+                    <button id="lost-login-btn" type="button" class="btn btn-link" ng-click="showLogin()">Log In</button>
+                    <button id="lost-register-btn" type="button" class="btn btn-link" ng-click="showRegister()">Register</button>
+                  </div>
+                </div>
+              </form> <!-- close #lost-form -->
+              <!-- Register Form -->
+              <form id="register-form" ng-hide="!register" ng-show="register">
+                <div class="modal-body">
+                  <div id="div-register-msg"> <!-- success/fail msg -->
+                    <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
+                    <span id="text-register-msg">Register an account.</span>
+                  </div>
+                  <input id="register-username" class="form-control" type="text" placeholder="Username" required>
+                  <input id="register-email" class="form-control" type="text" placeholder="E-Mail" required>
+                  <input id="register-password" class="form-control" type="password" placeholder="Password" required>
+                </div>
+                <div class="modal-footer">
+                  <div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                  </div>
+                  <div>
+                    <button id="register-login-btn" type="button" class="btn btn-link" ng-click="showLogin()">Log In</button>
+                    <button id="register-lost-btn" type="button" class="btn btn-link" ng-click="showLost()">Lost Password?</button>
+                  </div>
+                </div>
+              </form> <!-- close #register-form -->
+            </div> <!-- close .modal-content -->
+          </div> <!-- close .modal-dialogue -->
+        </div> <!-- close #login-modal -->
+      </div> <!-- close #login and loginCtrl -->
+
+      <div id="sponsors">
+        <div class="row">
+          <div class="col col-sm-12">
+            <br>
+            <img src="../../images/mean-sponsors.png">
+            <br>
+          </div>
         </div>
-      </div> <!-- close footer subscribe column 5 -->
-    </div> <!-- close footer top .row -->
-    <!-- BEGIN footer bottom .row -->
-    <div class="row">
-      <div class="col col-sm-12" id="footer-bottom">
-        <a href=""><img id="footer-logo" src="../../images/legacy-crowd-logo.png"></a>
-        <a href="">Terms &amp; Conditions</a>
-        <span> | </span>
-        <a href="">Privacy</a>
-        <span> | </span>
-        <a href="">Copyright © </a>
-        <span>2016 LegacyCrowd, Inc. All Rights Reserved</span>
-      </div>
-    </div> <!-- close footer bottom .row -->
-  </div>
-</footer> <!-- close footer -->
+      </div> <!-- close sponsors -->
+
+      <div class="content-info">
+        <div class="container" id="footer-container">
+          <div class="row">      
+            <!-- BEGIN footer content column 1 -->
+            <div class="col col-md-2 col-sm-3 col-xs-6 nav_menu">
+              <h3 class="footer-headers">Investors</h3>
+              <ul class="align-footer-content">
+                <li class="footer-investors">
+                  <a href="">Crowdfunding Basics</a>
+                </li>
+                <li class="footer-investors">
+                  <a href="">Investor Tips &amp; Tricks</a>
+                </li>
+                <li class="footer-investors">
+                  <a href="">When do I get Paid ?</a>
+                </li>
+              </ul>
+            </div> <!-- close footer content column 1 -->
+            <!-- BEGIN footer content column 2 -->
+            <div class="col col-md-2 col-sm-3 col-xs-6 nav_menu">
+              <h3 class="footer-headers">Campaigns</h3>
+              <ul class="align-footer-content">
+                <li class="footer-campaigns">
+                  <a href="">Creating a Winner</a>
+                </li>
+                <li class="footer-campaigns">
+                  <a href="">Your First Campaign</a>
+                </li>
+                <li class="footer-campaigns">
+                  <a href="">Help &amp; Info</a>
+                </li>
+                <li class="footer-campaigns">
+                  <a href="">Things You Will Need</a>
+                </li>
+              </ul>
+            </div> <!-- close footer content column 2 -->
+            <!-- BEGIN footer content column 3 -->
+            <div class="col col-md-2 col-sm-3 col-xs-6 nav_menu">
+              <h3 class="footer-headers">How It Works</h3>
+              <ul class="align-footer-content">
+                <li class="footer-info">
+                  <a href="">Mongoose</a>
+                </li>
+                <li class="footer-info">
+                  <a href="">Express.js</a>
+                </li>
+                <li class="footer-info">
+                  <a href="">Angular.js</a>
+                </li>
+                <li class="footer-info">
+                  <a href="">Node.js</a>
+                </li>
+                <li>
+                  <a href="http://Yogibuff.com">Meet the Developer</a>
+                </li>
+              </ul>
+            </div> <!-- close footer content column 3 -->
+            <!-- BEGIN footer content column 4 -->
+            <div class="col col-md-2 col-sm-3 col-xs-6 nav_menu">
+              <h3 class="footer-headers">Contact</h3>
+              <ul class="align-footer-content">
+                <li class="footer-contact">
+                  <a href="">About Us</a>
+                </li>
+                <li class="footer-contact">
+                  <a href="">Our Location</a>
+                </li>
+                <li class="footer-contact">
+                  <a href="">Learn More</a>
+                </li>
+              </ul>
+            </div> <!-- close footer content column 4 -->
+            <!-- BEGIN footer subscribe column 5 -->
+            <div class="col col-md-3 col-sm-4 col-xs-6 nav_menu" id="footer-signup">
+              <div>
+                <h5 class="footer-headers email-heading">Recieve the Latest</h5>
+                <h5 class="footer-headers email-heading">Campaign News and Offers</h5>
+              </div>
+              <div id="email-flexbox">
+                  <input type="email" placeholder="Email Address" id="email-input" ng-model="home.emailsubscribe">
+                  <button type="submit"><i class="fa fa-thumbs-up"></i></button>
+              </div>
+              <br>
+              <!-- social media links -->
+              <div class="social">
+                <ul id="social-icons">
+                  <li><a href="/#/"><i class="fa fa-lg fa-facebook"></i></a></li>
+                  <li><a href="/#/"><i class="fa fa-lg fa-twitter"></i></a></li>
+                  <li><a href="/#/"><i class="fa fa-lg fa-github"></i></a></li>
+                  <li><a href="/#/"><i class="fa fa-lg fa-linkedin"></i></a></li>
+                  <li><a href="/#/"><i class="fa fa-lg fa-google-plus"></i></a></li>
+                </ul>
+              </div>
+            </div> <!-- close footer subscribe column 5 -->
+          </div> <!-- close footer top .row -->
+          <!-- BEGIN footer bottom .row -->
+          <div class="row">
+            <div class="col col-sm-12" id="footer-bottom">
+              <a href="/#/"><img id="footer-logo" src="../../images/legacy-crowd-logo.png"></a>
+              <a href="/#/">Terms &amp; Conditions</a>
+              <span> | </span>
+              <a href="/#/">Privacy</a>
+              <span> | </span>
+              <a href="/#/">Copyright © </a>
+              <span>2016 LegacyCrowd, Inc. All Rights Reserved</span>
+            </div>
+          </div> <!-- close footer bottom .row -->
+        </div>
+      </div> <!-- close .content-info -->
+    </footer> <!-- close footer and homeController -->
+  </body>
 </html>
