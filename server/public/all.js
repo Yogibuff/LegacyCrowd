@@ -24,79 +24,63 @@ app.config(function($routeProvider) {
     //   redirectTo: '/app/views/custom-404.html'
     // });
 });
-// existing legacyCrowdApp module
-var legacy = angular.module('legacyCrowdApp');
-
-/* add creator controller with logic for manipulating the campaign creator UI
-and handling user input campaign data within the $scope */
-legacy.controller('creatorCtrl', function($scope) {
-  $scope.helloWorld = function() {
-    console.log('testing - helloWorld function within the creatorCtrl');
-  };
-});
+// Posts a new created campaign to the database
+app.controller('creatorCtrl', ['$http', function($http, $scope) {
+  function createCampaign() {
+    $http({
+      method: 'POST',
+      url: '/create'
+    })
+    .then(function(response) {
+      vm.message = 'Added successfully';
+    });
+  }
+}]);
 
 // test service, creates the method testingMyService
-legacy.service('data-service', function() {
+app.service('data-service', function() {
   this.testingMyService(function() {
     console.log('This is my service!');
   });
 });
-// existing legacyCrowdApp module
-var legacy = angular.module('legacyCrowdApp');
-
-/* add createCampaign controller with logic for manipulating the campaign creator UI
-and handling user input campaign data within the $scope */
-legacy.controller('campaignViewerCtrl', function($scope) {
-  $scope.helloWorld = function() {
-    console.log('testing - helloWorld function within the campaignViewerCtrl');
-  };
-});
-// existing legacyCrowdApp module
-var legacy = angular.module('legacyCrowdApp');
-legacy.controller('featuredCampaignCtrl', function() {
+// Retrieves a specific campaign for the full list of campaign details in campaign-viewer.html
+app.controller('campaignViewerCtrl', ['$http', function($http, $scope) {
   var vm = this;
-  // add logic and variables
-});
 
-// create a single campaign card to preview an image, name, location
-legacy.directive('campaignCard', function() {
-  return {
-    template:
-    '<div class="container cardContainer">' +
-      /* temporary image and content, replace with campaign data stored in MongoDB */
-      '<img class="img-square cardImg" src="images/legacy-phone-campaign.png" href="">' +
-      '<h2 class="cardTitle">Metronome Technologies</h2>' +
-      '<p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>' +
-      '<a class="cardLocation" href="/#/campaign-viewer"><i class="fa fa-map-marker"></i> Irvine, California</a>' +
-    '</div>'
-  };
-});
-
-/* TO DO:
-
-  - request image, cardTitle, cardBlurb, cardLocation
-  - retrieve img url and other data from MongoDB for each individual campaign 
-    -> populate card using mongoose
-  - campaign data stored in JSON format within the MongoDB campaign object
-
-*/
-// injects homepage content into index.html
-var legacy = angular.module('legacyCrowdApp');
-legacy.controller('homepageCtrl', function($scope) {
+  $http({
+    method: 'GET',
+    url: '/data'
+  })
+  .success(function(data) {
+    vm.campaigns = data;
+    console.log(data);
+  })
+  .error(function(data) {
+    console.log('error, check campaignViewer controller.');
+  });
+}]);
+var app = angular.module('legacyCrowdApp');
+app.controller('homepageCtrl', ['$http', function($scope, $http) {
   var subscribe = {
     emailsubscribe: "default",
     member: false
   };
-  $scope.scrollTop = function() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 700);
-  };
-});
-legacy.controller('loginCtrl', function($scope) {
-  $scope.helloWorld = function() {
-    console.log("testing - helloWorld function within the loginCtrl");
-  };
+  var vm = this;
+  // http service for database request, returns a promise with campaign data
+  $http({
+    method: 'GET',
+    url: '/data'
+  })
+  .success(function(data) {
+    vm.campaigns = data;
+    console.log("Response from database. Status: " + res.status);
+  })
+  .error(function(data) {
+    console.log("Front-end data request failed. Status: " + res.status + ' ' + res.statusText);
+  });
+}]);
+// switches between login, lost password, and register options within the Login Modal
+app.controller('loginCtrl', function($scope) {
   $scope.showLogin = function() {
     console.log('showLogin function fired');
     $scope.login = true;
@@ -116,12 +100,8 @@ legacy.controller('loginCtrl', function($scope) {
     $scope.register = true;
   };
 });
-// test ctrl
-
-// existing legacyCrowdApp module
-var legacy = angular.module('legacyCrowdApp');
-
-legacy.controller('scrollCtrl', function($scope) {
+app.controller('scrollCtrl', function($scope) {
+  // scroll page to top in 700ms
   $scope.scrollTop = function() {
     $('html, body').animate({
       scrollTop: 0

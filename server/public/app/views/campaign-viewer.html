@@ -1,51 +1,49 @@
 <!-- Campaign Viewer -->
-<div id="campaign-viewer">
+<div class="container" id="campaign-viewer">
   <div class="row">
     <div class="col col-sm-8 offset-2">
-      <div id="viewer-container">
         <ul>
           <li>
-            <label class="mongo-output">Project Image:</label>
-            <input ng-model="creator.imageUpload">
-                 {{ viewer.image }}
+            <label>Project Image URL:</label>
+            <input ng-model="creator.image">
+              {{ viewer.image }}
           </li>
           <li>
-            <label class="mongo-output">Funding Target:</label>
+            <label>Funding Target:</label>
             <input type="text" ng-model="viewer.target">
-             {{ viewer.target }}
+              {{ viewer.target }}
           </li>
           <li>
-            <label class="mongo-output">Project Title:</label>
+            <label>Project Title:</label>
             <input ng-model="viewer.title">
               {{ viewer.title }}
           </li>
           <li>
-            <label class="mongo-output">Short Blurb:</label>
+            <label>Short Blurb:</label>
             <input type="text" ng-model="viewer.blurb">
               {{ viewer.blurb }}
           </li>
           <li>
-            <label class="mongo-output">Location:</label>
+            <label>Location:</label>
             <input ng-model="viewer.location">
               {{ viewer.location }}
           </li>
           <li>
-            <label class="mongo-output">Category:</label>
+            <label>Category:</label>
             <input type="text" ng-model="viewer.category">
               {{ viewer.category }}
           </li>
           <li>
-            <label class="mongo-output">Campaign Start Date:</label>
+            <label>Campaign Start Date:</label>
             <input ng-model="viewer.startDate">
               {{ viewer.startDate }}
           </li>
           <li>
-            <label class="mongo-output">Campaign End Date:</label>
+            <label>Campaign End Date:</label>
             <input type="text" ng-model="viewer.endDate">
               {{ viewer.endDate }}
           </li>
         </ul>
-      </div> <!-- close #viewer-container -->
     </div>
   </div> <!-- close .row -->
 </div> <!-- close #campaign-viewer -->
