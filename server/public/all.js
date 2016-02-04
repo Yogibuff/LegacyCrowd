@@ -25,7 +25,7 @@ app.config(function($routeProvider) {
     // });
 });
 // Posts a new created campaign to the database
-app.controller('creatorCtrl', ['$http', function($http, $scope) {
+app.controller('creatorCtrl', function($http, $scope) {
   function createCampaign() {
     $http({
       method: 'POST',
@@ -35,7 +35,7 @@ app.controller('creatorCtrl', ['$http', function($http, $scope) {
       vm.message = 'Added successfully';
     });
   }
-}]);
+});
 
 // test service, creates the method testingMyService
 app.service('data-service', function() {
@@ -44,7 +44,7 @@ app.service('data-service', function() {
   });
 });
 // Retrieves a specific campaign for the full list of campaign details in campaign-viewer.html
-app.controller('campaignViewerCtrl', ['$http', function($http, $scope) {
+app.controller('campaignViewerCtrl', function($http, $scope) {
   var vm = this;
 
   $http({
@@ -58,9 +58,9 @@ app.controller('campaignViewerCtrl', ['$http', function($http, $scope) {
   .error(function(data) {
     console.log('error, check campaignViewer controller.');
   });
-}]);
+});
 var app = angular.module('legacyCrowdApp');
-app.controller('homepageCtrl', ['$http', function($scope, $http) {
+app.controller('homepageCtrl', function($scope, $http) {
   var subscribe = {
     emailsubscribe: "default",
     member: false
@@ -73,12 +73,12 @@ app.controller('homepageCtrl', ['$http', function($scope, $http) {
   })
   .success(function(data) {
     vm.campaigns = data;
-    console.log("Response from database. Status: " + res.status);
+    console.log("Response from database.");
   })
   .error(function(data) {
-    console.log("Front-end data request failed. Status: " + res.status + ' ' + res.statusText);
+    console.log("Front-end data request failed.");
   });
-}]);
+});
 // switches between login, lost password, and register options within the Login Modal
 app.controller('loginCtrl', function($scope) {
   $scope.showLogin = function() {
