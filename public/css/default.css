@@ -163,33 +163,40 @@ body {
   overflow: hidden;
 }
 .cardContainer {
-  width: 230px;
+  width: 275px;
   height: 350px;
   margin: 25px auto;
   padding: 10px;
-  border: 3px solid rgba(51, 51, 51, 0.4);
+  background-color: rgba(17, 17, 17, 0.12);
   border-radius: 7px;
 }
 .cardImg {
-  width: 225px;
+  width: 275px;
   height: 190px;
   margin-top: -10px;
   margin-left: -10px;
   border-radius: 5px;
 }
 .cardTitle {
+  width: 275px;
+  height: 30px;
+  background-color: #444;
+  margin-left: -10px;
+  color: white;
+  margin-top: 0px;
+  padding: 15px 0 37px 0;
   font-size: 22px;
   text-align: center;
 }
 .cardBlurb {
-  margin-left: 3px;
+  height: 60px;
+  margin: 5px 10px;
 }
 .cardLocation {
+  position: relative;
+  left: -15px;
   margin-left: 20px;
   color: #337ab7;
-  position: absolute;
-  bottom: 35px;
-  left: 35px;
 }
 
 /* video hero */
