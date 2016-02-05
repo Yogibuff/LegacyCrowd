@@ -15,7 +15,7 @@ var angular = [
 ];
 
 // check for modifications within client folder, when changes occur run 'build' task
-gulp.watch(['client/**/*.js', 'client/*.html', 'client/css/*.css'], ['build']);
+gulp.watch(['client/**/*.js', 'client/*.html', 'client/css/*.css', 'client/images/*'], ['build']);
 
 // Test Node server, checks the server is running
 gulp.task('default', function() {
@@ -43,6 +43,12 @@ gulp.task('css', function() {
     .pipe(gulp.dest('server/public/css'));
 });
 
+// send Images to server/public/images
+gulp.task('images', function() {
+  return gulp.src('client/images/*/*')
+    .pipe(gulp.dest('server/public/images'));
+});
+
 // concat node_modules into vendor.js within server/public
 gulp.task('concat', function() {
   return gulp.src(libraries) 
@@ -51,7 +57,7 @@ gulp.task('concat', function() {
 });
 
 // build the index.html page using angular html files, the angular library, and all other libraries
-gulp.task('build', ['angular', 'css', 'views', 'concat'], function() {
+gulp.task('build', ['angular', 'css', 'images', 'views', 'concat'], function() {
   console.log('Server running on port 3000. Gulp checked for client-side changes.');
   return gulp.src(['client/index.html'])
     .pipe(gulp.dest('server/public'));
