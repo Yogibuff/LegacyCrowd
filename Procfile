@@ -1,1 +1,1 @@
-web: node public/app.js
+web: node LegacyCrowd/public/app.js
