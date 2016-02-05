@@ -2,7 +2,7 @@ var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000;
 
-app.use(express.static(__dirname));
+app.use(express.static('public'));
 
 function logErrors(err, req, res, next) {
   console.error(err.stack);
