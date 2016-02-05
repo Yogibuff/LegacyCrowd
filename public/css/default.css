@@ -176,6 +176,8 @@ body {
   margin-top: -10px;
   margin-left: -10px;
   border-radius: 5px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 .cardTitle {
   width: 275px;
