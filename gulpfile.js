@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     print = require('gulp-print');
 
-var server = 'server/app.js';  
+var server = 'public/app.js';  
 
 var libraries = [
   'client/bower_components/angular/angular.min.js',
@@ -15,9 +15,9 @@ var angular = [
 ];
 
 // check for modifications within client folder, when changes occur run 'build' task
-gulp.watch(['client/**/*.js', 'client/*.html', 'client/css/*.css', 'client/images/*'], ['build']);
+gulp.watch(['client/app.js', 'client/**/*.js', 'client/*.html', 'client/css/*.css', 'client/images/*'], ['build']);
 
-// Test Node server, checks the server is running
+// Run Node server, rebuilds any watched files that change
 gulp.task('default', function() {
   nodemon({
     script: server,
@@ -26,39 +26,45 @@ gulp.task('default', function() {
 
 // concat angular files into all.js
 gulp.task('angular', function() {
-  return gulp.src(angular)
+  return gulp.src('client/app/**/*.js')
     .pipe(concat('all.js'))
-    .pipe(gulp.dest('server/public'));
+    .pipe(gulp.dest('public/app'));
 });
 
-// send all angular views (html files within the client folder) to server/public
+// send all angular views (html files within the client folder) to /public
 gulp.task('views', function() {
-  return gulp.src('client/**/*.html')
-    .pipe(gulp.dest('server/public'));
+  return gulp.src('client/app/**/*.html')
+    .pipe(gulp.dest('public/app'));
 });
 
-// send CSS to server/public/css
+// send Node server (app.js) to /public/
+gulp.task('node', function() {
+  return gulp.src('client/app.js')
+    .pipe(gulp.dest('public/'));
+});
+
+// send CSS to /public/css
 gulp.task('css', function() {
   return gulp.src('client/css/*.css')
-    .pipe(gulp.dest('server/public/css'));
+    .pipe(gulp.dest('public/css'));
 });
 
-// send Images to server/public/images
+// send Images to /public/images
 gulp.task('images', function() {
   return gulp.src('client/images/*/*')
-    .pipe(gulp.dest('server/public/images'));
+    .pipe(gulp.dest('public/images'));
 });
 
-// concat node_modules into vendor.js within server/public
+// concat node_modules into vendor.js within /public
 gulp.task('concat', function() {
   return gulp.src(libraries) 
     .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('server/public'));
+    .pipe(gulp.dest('public/'));
 });
 
 // build the index.html page using angular html files, the angular library, and all other libraries
-gulp.task('build', ['angular', 'css', 'images', 'views', 'concat'], function() {
+gulp.task('build', ['angular', 'views', 'node', 'css', 'images', 'concat'], function() {
   console.log('Server running on port 3000. Gulp checked for client-side changes.');
   return gulp.src(['client/index.html'])
-    .pipe(gulp.dest('server/public'));
+    .pipe(gulp.dest('public/'));
 });
