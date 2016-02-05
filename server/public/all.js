@@ -73,7 +73,7 @@ app.controller('homepageCtrl', function($scope, $http) {
   })
   .success(function(data) {
     vm.campaigns = data;
-    console.log("Response from database.");
+    console.log("Campaign data retrieved from Mongo database.");
   })
   .error(function(data) {
     console.log("Front-end data request failed.");

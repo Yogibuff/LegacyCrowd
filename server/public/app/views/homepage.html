@@ -20,74 +20,15 @@
   <!-- top 8 campaigns, in 2 rows of 4 campaign cards each -->
   <div class="row" id="topCampaignsContainer">
     
-    <div class="col-xs-2 col-md-3 cards">
-      <!-- card 1 -->
+    <div class="col-xs-2 col-md-3 cards" ng-repeat="campaign in home.campaigns">
       <div class="container cardContainer">
-        <img class="img-square cardImg" src="images/legacy-phone-campaign.png">
-        <h2 class="cardTitle">Metronome Technologies</h2>
-        <p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>
-        <a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>
+        <img class="img-square cardImg" ng-src="images/{{campaign.Image}}" href="">
+        <h2 class="cardTitle">{{ campaign.Name }}</h2>
+        <p class="cardBlurb">{{ campaign.Pitch }}</p>
+        <a class="cardLocation" href="/#/campaign-viewer"><i class="fa fa-map-marker"></i> {{ campaign.Location }}</a>
       </div>
-      <!-- card 2 -->
-      <div class="container cardContainer">
-        <img class="img-square cardImg" src="images/legacy-phone-campaign.png">
-        <h2 class="cardTitle">Metronome Technologies</h2>
-        <p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>
-        <a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>
-      </div>
-    </div> <!-- close .column -->
 
-    <div class="col-xs-2 col-md-3 cards">
-      <!-- card 3 -->
-      <div class="container cardContainer">
-        <img class="img-square cardImg" src="images/legacy-phone-campaign.png">
-        <h2 class="cardTitle">Metronome Technologies</h2>
-        <p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>
-        <a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>
-      </div>
-      <!-- card 4 -->
-      <div class="container cardContainer">
-        <img class="img-square cardImg" src="images/legacy-phone-campaign.png">
-        <h2 class="cardTitle">Metronome Technologies</h2>
-        <p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>
-        <a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>
-      </div>
-    </div> <!-- close .column -->
-
-    <div class="col-xs-2 col-md-3 cards">
-      <!-- card 5 -->
-      <div class="container cardContainer">
-        <img class="img-square cardImg" src="images/legacy-phone-campaign.png">
-        <h2 class="cardTitle">Metronome Technologies</h2>
-        <p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>
-        <a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>
-      </div>
-      <!-- card 6 -->
-      <div class="container cardContainer">
-        <img class="img-square cardImg" src="images/legacy-phone-campaign.png">
-        <h2 class="cardTitle">Metronome Technologies</h2>
-        <p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>
-        <a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>
-      </div>
-    </div> <!-- close .column -->
-
-    <div class="col-xs-2 col-md-3 cards">
-      <!-- card 7 -->
-      <div class="container cardContainer">
-        <img class="img-square cardImg" src="images/legacy-phone-campaign.png">
-        <h2 class="cardTitle">Metronome Technologies</h2>
-        <p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>
-        <a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>
-      </div>
-      <!-- card 8 -->
-      <div class="container cardContainer">
-        <img class="img-square cardImg" src="images/legacy-phone-campaign.png">
-        <h2 class="cardTitle">Metronome Technologies</h2>
-        <p class="cardBlurb">This campaign will build a new fast and affordable smartphone</p>
-        <a class="cardLocation" href=""><i class="fa fa-map-marker"></i> Irvine, California</a>
-      </div>
-    </div> <!-- close .column -->
-
+    </div>
   </div> <!-- close featuredCampaignCtrl -->
 </div> <!-- close #top-campaigns -->
 
