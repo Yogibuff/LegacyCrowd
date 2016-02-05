@@ -8,7 +8,7 @@
  * Users of LegacyCrowd become Investors, who contribute to the campaigns they resonate with, recieving their money back <b>with interest!</b>
 
 
-<img src="images/mean-sponsors.png">
+<img src="public/images/site-screenshots/mean-sponsors.png">
 
 * Technologies Used:
  * Full MEAN JavaScript Stack
@@ -21,9 +21,9 @@
  * Test Driven Development using Mocha.
 
 
-<img src="images/legacy-homepage-top.png">
-<img src="images/campaign-cards.png">
-<img src="images/legacy-homepage-bottom.png">
+<img src="public/images/site-screenshots/legacy-homepage-top.png">
+<img src="public/images/site-screenshots/legacy-campaign-cards.png">
+<img src="public/images/site-screenshots/legacy-homepage-bottom.png">
 
 ## Initial Wireframe in Balsamiq
 
