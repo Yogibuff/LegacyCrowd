@@ -1,0 +1,55 @@
+<!-- Campaign Creator -->
+<div id="campaign-creator">
+  <div class="row">
+    <div class="col col-sm-12">
+      <div id="creator-container">
+        <h1>Start Building Your Project!</h1>
+        <h4>Add an Image, Set a Goal, and include Important Details</h4>
+        <form novalidate>
+          <ul>
+            <li>
+              <label>Project Image URL:</label>
+              <input ng-model="creator.Image">
+              <img ng-src="images/{{ creator.Image }}">
+            </li>
+            <li>
+              <label>Funding Target:</label>
+              <input type="text" ng-model="creator.Target">
+               {{ creator.Target }}
+            </li>
+            <li>
+              <label>Project Name:</label>
+              <input ng-model="creator.Name">
+                {{ creator.Name }}
+            </li>
+            <li>
+              <label>Short Pitch:</label>
+              <input type="text" ng-model="creator.Pitch">
+                {{ creator.Pitch }}
+            </li>
+            <li>
+              <label>Location:</label>
+              <input ng-model="creator.Location">
+                {{ creator.Location }}
+            </li>
+            <li>
+              <label>Industry:</label>
+              <input type="text" ng-model="creator.Industry">
+                {{ creator.Industry }}
+            </li>
+            <li>
+              <label>Campaign Start Date:</label>
+              <input ng-model="creator.Start">
+                {{ creator.Start }}
+            </li>
+            <li>
+              <label>Campaign End Date:</label>
+              <input type="text" ng-model="creator.End">
+                {{ creator.End }}
+            </li>
+          </ul>
+        </form>
+      </div> <!-- close #campaign-creator -->
+    </div>
+  </div> <!-- close .row -->
+</div> <!-- close #campaign creator -->
