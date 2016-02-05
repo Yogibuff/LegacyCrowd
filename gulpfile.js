@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     print = require('gulp-print');
 
-var server = 'public/app.js';  
+var server = 'app.js';  
 
 var libraries = [
   'client/bower_components/angular/angular.min.js',
@@ -15,7 +15,7 @@ var angular = [
 ];
 
 // check for modifications within client folder, when changes occur run 'build' task
-gulp.watch(['client/app.js', 'client/**/*.js', 'client/*.html', 'client/css/*.css', 'client/images/*'], ['build']);
+gulp.watch(['client/**/*.js', 'client/*.html', 'client/css/*.css', 'client/images/*'], ['build']);
 
 // Run Node server, rebuilds any watched files that change
 gulp.task('default', function() {
@@ -35,12 +35,6 @@ gulp.task('angular', function() {
 gulp.task('views', function() {
   return gulp.src('client/app/**/*.html')
     .pipe(gulp.dest('public/app'));
-});
-
-// send Node server (app.js) to /public/
-gulp.task('node', function() {
-  return gulp.src('client/app.js')
-    .pipe(gulp.dest('public/'));
 });
 
 // send CSS to /public/css
@@ -63,7 +57,7 @@ gulp.task('concat', function() {
 });
 
 // build the index.html page using angular html files, the angular library, and all other libraries
-gulp.task('build', ['angular', 'views', 'node', 'css', 'images', 'concat'], function() {
+gulp.task('build', ['angular', 'views', 'css', 'images', 'concat'], function() {
   console.log('Server running on port 3000. Gulp checked for client-side changes.');
   return gulp.src(['client/index.html'])
     .pipe(gulp.dest('public/'));
