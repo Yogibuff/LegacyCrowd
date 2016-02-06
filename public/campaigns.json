@@ -1,7 +1,7 @@
-[
+[    
     {
         "Name" : "Emberlight",
-        "Description" : "Simply screw in any bulb into the Emberlight, then connect to any bulb-hosting socket. The Emberlight connects to your home's wifi, and then download the Emberlight Application and take control of each lightbulb. Turn lights on/off or see if the lights are left on from anywhere in the world. Set the mood by dimming a group of sockets with a single touch.",
+        "Description" : "Simply screw in any bulb into the Emberlight, then connect to any bulb-hosting socket. The Emberlight connects to your home wifi, and then download the Emberlight Application and take control of each lightbulb. Turn lights on/off or see if the lights are left on from anywhere in the world. Set the mood by dimming a group of sockets with a single touch.",
         "Pitch" : "Connect lightbulbs to your wifi, then use an app to control each lightbulb.",
         "Target" : "35,000",
         "Location" : "San Francisco, CA",

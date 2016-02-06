@@ -26,7 +26,7 @@ var mongoose = require('mongoose');
 var db = mongoose.connection;
 
 // initialize direct connection to Mongo Database
-mongoose.connect('mongodb://localhost/campaigns', function(err) {
+mongoose.connect('mongodb://Owner:Porsche1@ds059135.mongolab.com:59135/campaigns', function(err) {
   if(err) throw err;
 });
 
