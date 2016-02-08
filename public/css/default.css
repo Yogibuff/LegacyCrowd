@@ -73,8 +73,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  
-  background: #2098d1;
+  /*background-color: #2098d1;*/
+  background-color: rgb(22, 116, 209);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   transform: scaleY(0);
@@ -106,7 +106,8 @@ body {
   color: white;
 }
 #learn-more:hover {
-  background-color: rgba(22, 116, 209, 0.7);
+  background-color: #eee;
+  color: #1674D1;
 }
 #create-account {
   position: relative;
@@ -117,7 +118,8 @@ body {
   color: white;
 }
 #create-account:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #1674D1;;
 }
 
 /* campaign card styles */
@@ -173,11 +175,17 @@ body {
 .cardImg {
   width: 275px;
   height: 190px;
-  margin-top: -10px;
+  margin-top: -30px;
   margin-left: -10px;
   border-radius: 5px;
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
+  /* transitions to normal when loses focus */
+  transition: opacity 600ms ease;
+}
+.cardImg:hover {
+  opacity: 1;
+  transition: opacity 600ms ease;
 }
 .cardTitle {
   width: 275px;
@@ -192,13 +200,26 @@ body {
 }
 .cardBlurb {
   height: 60px;
-  margin: 5px 10px;
+  margin: 15px 10px 5px;
 }
 .cardLocation {
   position: relative;
-  left: -15px;
+  float: left;
+  bottom: 0px;
   margin-left: 20px;
   color: #337ab7;
+}
+.card-description {
+  position: absolute;
+  opacity: 0;
+  padding-top: 60px;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  /* Alternate hover color scheme with dark corners
+  radial-gradient(rgba(26,115,214, 0.9), rgba(17,17,17,0.4)); 
+  */
+  background-image: radial-gradient(#8ABAE4, rgba(26,115,214, 0.65)65%);
 }
 
 /* video hero */
@@ -228,13 +249,15 @@ body {
 }
 #video-hero-content {
   color: white;
-  padding-top: 120px;
+  padding-top: 100px;
 }
 #video-hero-content > h1 {
   font-size: 70px;
   margin-bottom: 30px;
 }
 #video-hero-content > p {
+  max-width: 1050px;
+  margin:0 auto 10px auto;
   padding: 10px 240px 15px 240px;
   font-size: 17px;
   line-height: 2.75;
@@ -248,15 +271,21 @@ body {
   background-color: rgba(51, 51, 51, 0);
   color: white;
   font-weight: 600;
+  background-color: #1674D1;
+  border-radius: 3px;
 }
 #get-started:hover {
   background-color: white;
   color: rgb(22, 116, 209);
 }
+#get-started a {
+  width: 149px;
+  height: 56px;
+}
 
 #sponsors {
   margin: 40px auto;
-  padding-left: 5%;
+  padding-left: 7%;
 }
 
 /* footer styles */
@@ -277,7 +306,8 @@ footer {
 #footer-bottom > span {
   color: aliceblue;
 }
-.align-footer-content {
+.align-footer-content,
+#align-details {
   padding-left: 0px;
 }
 .align-footer-content > li > a {
@@ -415,10 +445,73 @@ footer {
 
 /* campaign-builder styles */
 #campaign-creator {
+  margin: 0 auto;
+  padding-top: 40px;
   text-align: center;
-  padding-top: 30px;
 }
-#campaign-creator > h1 {
+#campaign-creator h1 {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 15px;
+}
+#campaign-creator input {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+#campaign-creator .cardImg {
+  margin-top: -10px;
+}
+.creator-added-details input {
+  width: 240px;
+  margin-left: -30px;
+}
+.creator-steps {
+  margin-bottom: 40px;
+}
+.creator-added-details li {
+  padding: 10px 0px;
+}
+#creator-container > h1 {
+  font-size: 50px;
+  background-color: #609ADA;
+  margin-left: 55px;
+  margin-right: 35px;
+  padding-bottom: 15px;
+  border-radius: 7px;
+}
+#creator-target {
+  left: 200px;
+  top: 90px;
+}
+#creator-model > h3 {
+  color:rgba(17,17,17,0.3); height: 25px;
+  padding-top: 20px;
+}
+#step-three textarea {
+  width: 500px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 3px;
+}
+#description {
+  height: 160px;
+}
+#step-one li,
+#step-two li {
+  margin-left:-40px;
+  font-size: 18px;
+}
+.col-sm-4 li {
+  margin: 7px 0px;
+}
+#creator-submit,
+#creator-close {
+  width: 120px;
+  height: 40px;
+  margin-left: 40px;
+  font-size: 18px;
+}
+#creator-submit a,
+#creator-close a {
+  color: white;
+  text-decoration: none;
 }
