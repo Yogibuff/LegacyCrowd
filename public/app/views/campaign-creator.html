@@ -1,55 +1,80 @@
 <!-- Campaign Creator -->
 <div id="campaign-creator">
   <div class="row">
-    <div class="col col-sm-12">
+    <div class="col col-sm-6">
       <div id="creator-container">
-        <h1>Start Building Your Project!</h1>
-        <h4>Add an Image, Set a Goal, and include Important Details</h4>
-        <form novalidate>
+        <h1>3 Easy Steps</h1>
+        <h3>To Create Your Campaign</h3>
+
+        <!-- Step 1 -->
+        <div class="col-sm-6">
+          <h2>Step 1</h2>
+          <div class="creator-steps" id="step-one">
+            <ul>
+              <li><label>Project Name:</label></li>
+              <li><input type="text" maxlength="18" placeholder="name" ng-model="creator.Name"></li>
+<!--          <li><label>Project Image URL:</label></li>
+              <li><input type="url" ng-model="creator.Image"></li> -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <h2>Step 2:</h2>
+          <div class="creator-steps" id="step-two">
+            <ul>
+              <li><label>You Want to Raise:</label></li>
+              <li>$ <input type="text" maxlength="9" placeholder="1000000" ng-model="creator.Target"></li>
+            </ul>
+          </div>
+        </div>
+        <h2>Step 3: Describe it</h2>
+        <div class="creator-steps" id="step-three">
           <ul>
-            <li>
-              <label>Project Image URL:</label>
-              <input ng-model="creator.Image">
-              <img ng-src="images/{{ creator.Image }}">
-            </li>
-            <li>
-              <label>Funding Target:</label>
-              <input type="text" ng-model="creator.Target">
-               {{ creator.Target }}
-            </li>
-            <li>
-              <label>Project Name:</label>
-              <input ng-model="creator.Name">
-                {{ creator.Name }}
-            </li>
-            <li>
-              <label>Short Pitch:</label>
-              <input type="text" ng-model="creator.Pitch">
-                {{ creator.Pitch }}
-            </li>
-            <li>
-              <label>Location:</label>
-              <input ng-model="creator.Location">
-                {{ creator.Location }}
-            </li>
-            <li>
-              <label>Industry:</label>
-              <input type="text" ng-model="creator.Industry">
-                {{ creator.Industry }}
-            </li>
-            <li>
-              <label>Campaign Start Date:</label>
-              <input ng-model="creator.Start">
-                {{ creator.Start }}
-            </li>
-            <li>
-              <label>Campaign End Date:</label>
-              <input type="text" ng-model="creator.End">
-                {{ creator.End }}
-            </li>
+           <!--  <li><label>Write a 1 Sentence Pitch or Blurb to Attract Investors:</label></li> -->
+            <li><textarea type="text" maxlength="30" placeholder="Write a 1 Sentence Pitch or Blurb to Attract Investors..." ng-model="creator.Pitch"></textarea></li>
+            <br>
+            <!-- <li><label><em>(optional)</em> Add a longer description when investors hover over your campaign:</label></li> -->
+            <li><textarea id="description" type="text" maxlength="120" placeholder="Add a longer description to tell investors a bit more about your campaign..." ng-model="creator.Description"></textarea></li>
           </ul>
-        </form>
-      </div> <!-- close #campaign-creator -->
+        </div> <!-- close step 3 -->
+        <button class="btn btn-large btn-success" id="creator-submit"><a href="/#/">Submit</a></button>
+        <button class="btn btn-large btn-warning" id="creator-close"><a href="/#/">Close</a></button>
+      </div>
+    </div>
+
+    <div class="col col-sm-6">
+      <div id="creator-model">
+        <h3>{{creator.Industry}}</h3>
+        <div class="cards">
+          <div class="container cardContainer">
+            <img class="img-square cardImg" ng-src="images/{{creator.Image}}" href="">
+            <span class="card-description cardImg" id="creator-target">${{creator.Target}}</span>
+            <h2 class="cardTitle">{{ creator.Name }}</h2>
+            <p class="cardBlurb">{{ creator.Pitch }}</p>
+            <a class="cardLocation" href="/#/campaign-viewer" id="creator-location"><i class="fa fa-map-marker"></i> {{ creator.Location }}</a>
+          </div>
+        </div>
+      </div>
+    </div> <!-- close .col-6 -->
+
+    <div class="col-sm-6">
+      <div class="creator-added-details col-sm-4">
+        <ul>
+          <li><label>Your Location:</label></li>
+          <li><label style="margin-top: 5px;">Industry:</label></li>
+          <li><label>Begins:</label></li>
+          <li><label>End Date:</label></li>
+        </ul>
+      </div>
+      <div class="creator-added-details col-sm-3">
+        <ul id="align-details">
+          <li><input ng-model="creator.Location" content="City, State" placeholder="City, State"></li>
+          <li><input type="text" maxlength="18" placeholder="Technology" ng-model="creator.Industry"></li>
+          <li><input maxlength="8" placeholder="mm/dd/yyyy" ng-model="creator.Start"></li>   
+          <li><input maxlength="8" placeholder="mm/dd/yyyy" ng-model="creator.End"></li>
+        </ul>
+      </div>
     </div>
   </div> <!-- close .row -->
-</div> <!-- close #campaign creator -->
+</div> <!-- close #campaign creator
