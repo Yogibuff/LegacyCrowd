@@ -1,6 +1,4 @@
 <!-- HOMEPAGE -->
-
-<!-- header text, login & learn more buttons -->
 <div id="home-background">      
   <!-- Header -->
   <div id="header" ng-controller="scrollCtrl">
@@ -17,19 +15,19 @@
 
 <!-- 8 Featured Campaigns -->
 <div id="top-campaigns">
-  <!-- top 8 campaigns, in 2 rows of 4 campaign cards each -->
+  <!-- 2 rows of 4 campaign cards each -->
   <div class="row" id="topCampaignsContainer">
-    
     <div class="col-xs-2 col-md-3 cards" ng-repeat="campaign in home.campaigns">
       <div class="container cardContainer">
+        <br>
+        <span class="card-description cardImg">${{campaign.Target}}</span>
         <img class="img-square cardImg" ng-src="images/{{campaign.Image}}" href="">
         <h2 class="cardTitle">{{ campaign.Name }}</h2>
         <p class="cardBlurb">{{ campaign.Pitch }}</p>
         <a class="cardLocation" href="/#/campaign-viewer"><i class="fa fa-map-marker"></i> {{ campaign.Location }}</a>
       </div>
-
     </div>
-  </div> <!-- close featuredCampaignCtrl -->
+  </div> <!-- close .row -->
 </div> <!-- close #top-campaigns -->
 
 <!-- Video Hero -->
@@ -44,7 +42,7 @@
         <h2>Investment-Based Crowdfunding</h2>
         <p>The mainstream models for raising capital leave out vast, untapped numbers of people who want to invest in the businesses and organizations that provide real value in the real world.</p>
         <!-- link to "campaign creator" view -->
-        <button id="get-started"><a href="/#/campaign-creator" ng-click="scrollTop()">Get Started</button> 
+        <a id="get-started" href="/#/campaign-creator" ng-click="scrollTop()">Get Started</a> 
       </div>
     </div>
   </div> <!-- close .video-container -->

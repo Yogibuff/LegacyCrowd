@@ -30,22 +30,16 @@ app.controller('creatorCtrl', function($http, $scope) {
     $http({
       method: 'POST',
       url: '/data'
-    })
-    .then(function(response) {
-      vm.message = 'Added successfully';
     });
   }
 });
 // Retrieves a specific campaign for the full list of campaign details in campaign-viewer.html
 app.controller('campaignViewerCtrl', function($scope, $http) {
-  var vm = this;
-
   $http({
     method: 'GET',
     url: '/data'
   })
   .success(function(data) {
-    vm.campaigns = data;
     console.log("Campaign data retrieved from Mongo database.");
   })
   .error(function(data) {
