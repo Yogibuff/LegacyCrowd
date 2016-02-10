@@ -12,10 +12,10 @@
     "url": "git+https://github.com/Yogibuff/LegacyCrowd.git"
   },
   "keywords": [
-    "\"Angular.js\"",
-    "\"full-stack\"",
-    "\"JavaScript\"",
-    "\"Crowdfund\""
+    "Angular",
+    "full-stack",
+    "JavaScript",
+    "Crowdfunding"
   ],
   "author": "Jordan Thimmig",
   "license": "ISC",
