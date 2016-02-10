@@ -234,10 +234,10 @@ body {
   background-attachment: fixed;
 }
 #video-frame {
-  max-width: 100%; 
+  height: 800px;
+  min-width: 100%; 
   margin-left: 0px; 
   margin-top: -40px;
-  height: 720px;
 }
 .video-overlay {
   position: absolute;
@@ -454,8 +454,12 @@ footer {
   padding-top: 15px;
 }
 #campaign-creator input {
-  padding: 5px 10px;
+  padding: 5px 20px;
   border-radius: 5px;
+  font-size: 16px;
+}
+#campaign-creator ul {
+  padding-left: 0px;
 }
 #campaign-creator .cardImg {
   margin-top: -10px;
@@ -470,36 +474,53 @@ footer {
 .creator-added-details li {
   padding: 10px 0px;
 }
+#creator-container {
+  margin-left: 60px;
+}
 #creator-container > h1 {
-  font-size: 50px;
-  background-color: #609ADA;
-  margin-left: 55px;
-  margin-right: 35px;
+  margin-top: -20px;
   padding-bottom: 15px;
   border-radius: 7px;
+  font-size: 50px;
 }
 #creator-target {
   left: 200px;
   top: 90px;
+  margin-left: 26px;
 }
 #creator-model > h3 {
   color:rgba(17,17,17,0.3); height: 25px;
   padding-top: 20px;
 }
-#step-three textarea {
-  width: 500px;
+#step-three-inner textarea {
+  width: 400px;
   margin-top: 10px;
-  padding: 10px;
-  border-radius: 3px;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 #description {
-  height: 160px;
+  height: 100px;
 }
 #step-one li,
 #step-two li {
   margin-left:-40px;
   font-size: 18px;
 }
+.step-one {
+  background-color: #337ab7;
+  border-top-left-radius: 10px;
+}
+.step-two {
+  background-color: #458A8A;
+  border-top-right-radius: 10px;
+}
+.step-three {
+  background-color: #5CB85C;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-bottom: 40px;
+}
+
 .col-sm-4 li {
   margin: 7px 0px;
 }
@@ -514,4 +535,31 @@ footer {
 #creator-close a {
   color: white;
   text-decoration: none;
+}
+#industry-dropdown {
+  width: 240px; 
+  margin-left: -30px;
+  font-size: 18px;
+  padding: 5px 20px;
+  text-align: left;
+  background-color: white;
+  border-radius: 5px;
+}
+.dropdown-menu {
+  width: 240px;
+  margin-left: -30px;
+  padding: 5px 0px;
+  text-align: center;
+  font-size: 16px;
+}
+.dropdown-menu > li > a:hover {
+  color: #337AB7;
+  text-decoration: none;
+  background-color: #444444;
+  font-size: 20px;
+  transition: background 300ms, font-size 700ms;
+  padding: 8px 0px;
+}
+.caret {
+  margin-left: 110px;
 }

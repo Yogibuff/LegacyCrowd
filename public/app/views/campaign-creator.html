@@ -4,12 +4,10 @@
     <div class="col col-sm-6">
       <div id="creator-container">
         <h1>3 Easy Steps</h1>
-        <h3>To Create Your Campaign</h3>
-
         <!-- Step 1 -->
-        <div class="col-sm-6">
+        <div class="col-sm-6 step-one">
           <h2>Step 1</h2>
-          <div class="creator-steps" id="step-one">
+          <div class="creator-steps" id="step-one-inner">
             <ul>
               <li><label>Project Name:</label></li>
               <li><input type="text" maxlength="18" placeholder="name" ng-model="creator.Name"></li>
@@ -18,34 +16,35 @@
             </ul>
           </div>
         </div>
-
-        <div class="col-sm-6">
+        <!-- Step 2 -->
+        <div class="col-sm-6 step-two">
           <h2>Step 2:</h2>
-          <div class="creator-steps" id="step-two">
+          <div class="creator-steps" id="step-two-inner">
             <ul>
               <li><label>You Want to Raise:</label></li>
               <li>$ <input type="text" maxlength="9" placeholder="1000000" ng-model="creator.Target"></li>
             </ul>
           </div>
         </div>
-        <h2>Step 3: Describe it</h2>
-        <div class="creator-steps" id="step-three">
-          <ul>
-           <!--  <li><label>Write a 1 Sentence Pitch or Blurb to Attract Investors:</label></li> -->
-            <li><textarea type="text" maxlength="30" placeholder="Write a 1 Sentence Pitch or Blurb to Attract Investors..." ng-model="creator.Pitch"></textarea></li>
-            <br>
-            <!-- <li><label><em>(optional)</em> Add a longer description when investors hover over your campaign:</label></li> -->
-            <li><textarea id="description" type="text" maxlength="120" placeholder="Add a longer description to tell investors a bit more about your campaign..." ng-model="creator.Description"></textarea></li>
-          </ul>
-        </div> <!-- close step 3 -->
+        <!-- Step 3 -->
+        <div class="col-sm-12 step-three">
+          <h2>Step 3: Describe it</h2>
+          <div class="creator-steps" id="step-three-inner">
+            <ul>
+              <li><textarea type="text" maxlength="34" placeholder="Write a 1 Sentence Pitch or Blurb to Attract Investors..." ng-model="creator.Pitch"></textarea></li>
+              <br>
+              <li><textarea id="description" type="text" maxlength="150" placeholder="Add a longer description to tell investors a bit more about your campaign..." ng-model="creator.Description"></textarea></li>
+            </ul>
+          </div> <!-- close #step 3 -->
+        </div>
         <button class="btn btn-large btn-success" id="creator-submit"><a href="/#/">Submit</a></button>
         <button class="btn btn-large btn-warning" id="creator-close"><a href="/#/">Close</a></button>
       </div>
     </div>
-
+    <!-- Campaign Preview -->
     <div class="col col-sm-6">
       <div id="creator-model">
-        <h3>{{creator.Industry}}</h3>
+        <h3>Campaign Preview</h3>
         <div class="cards">
           <div class="container cardContainer">
             <img class="img-square cardImg" ng-src="images/{{creator.Image}}" href="">
@@ -58,11 +57,11 @@
       </div>
     </div> <!-- close .col-6 -->
 
-    <div class="col-sm-6">
+    <div class="col-sm-6" style="padding-left: 60px;">
       <div class="creator-added-details col-sm-4">
         <ul>
           <li><label>Your Location:</label></li>
-          <li><label style="margin-top: 5px;">Industry:</label></li>
+          <li><label>Industry:</label></li>
           <li><label>Begins:</label></li>
           <li><label>End Date:</label></li>
         </ul>
@@ -70,7 +69,21 @@
       <div class="creator-added-details col-sm-3">
         <ul id="align-details">
           <li><input ng-model="creator.Location" content="City, State" placeholder="City, State"></li>
-          <li><input type="text" maxlength="18" placeholder="Technology" ng-model="creator.Industry"></li>
+          <li>
+            <div class="dropdown">
+              <button type="button" data-toggle="dropdown" id="industry-dropdown">
+                Industry
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="">Technology</a></li>
+                <li><a href="">Software</a></li>
+                <li><a href="">Energy</a></li>
+                <li><a href="">Gadgets</a></li>
+                <li><a href="">Life Sciences</a></li>
+              </ul>
+            </div>
+          </li>
           <li><input maxlength="8" placeholder="mm/dd/yyyy" ng-model="creator.Start"></li>   
           <li><input maxlength="8" placeholder="mm/dd/yyyy" ng-model="creator.End"></li>
         </ul>
