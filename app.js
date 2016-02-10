@@ -25,10 +25,15 @@ app.listen(port);
 var mongoose = require('mongoose');
 var db = mongoose.connection;
 
-// initialize direct connection to Mongo Database
+// initialize connection to MongoLabs hosted Database
 mongoose.connect('mongodb://Owner:Porsche1@ds059135.mongolab.com:59135/campaigns', function(err) {
   if(err) throw err;
 });
+
+ // initialize connection to Local Mongo Database
+ // mongoose.connect('mongodb://localhost/campaigns', function(err) {
+ //   if(err) throw err;
+ // });
 
 // log successful connections
 db.once('open', function () {
