@@ -11,8 +11,7 @@
             <ul>
               <li><label>Project Name:</label></li>
               <li><input type="text" maxlength="18" placeholder="name" ng-model="creator.Name"></li>
-<!--          <li><label>Project Image URL:</label></li>
-              <li><input type="url" ng-model="creator.Image"></li> -->
+        <!--  <li><input type="text" placeholder="Project Image URL" ng-model="creator.Image"></li>  -->
             </ul>
           </div>
         </div>
@@ -47,7 +46,7 @@
         <h3>Campaign Preview</h3>
         <div class="cards">
           <div class="container cardContainer">
-            <img class="img-square cardImg" ng-src="images/{{creator.Image}}" href="">
+            <img class="img-square cardImg" ng-src="images/stock-images/{{creator.Image}}">
             <span class="card-description cardImg" id="creator-target">${{creator.Target}}</span>
             <h2 class="cardTitle">{{ creator.Name }}</h2>
             <p class="cardBlurb">{{ creator.Pitch }}</p>
@@ -60,32 +59,38 @@
     <div class="col-sm-6" style="padding-left: 60px;">
       <div class="creator-added-details col-sm-4">
         <ul>
-          <li><label>Your Location:</label></li>
-          <li><label>Industry:</label></li>
-          <li><label>Begins:</label></li>
+          <li><label id="location-label">Your Location:</label></li>
+          <li style="margin-bottom: 47px;"></li>
+          <li><label>Start Date:</label></li>
           <li><label>End Date:</label></li>
+          <li><label>Campaign Image:</label></li>
         </ul>
       </div>
-      <div class="creator-added-details col-sm-3">
+      <div class="creator-added-details col-sm-5">
+        <h2>Additional Details</h2>
         <ul id="align-details">
           <li><input ng-model="creator.Location" content="City, State" placeholder="City, State"></li>
           <li>
-            <div class="dropdown">
-              <button type="button" data-toggle="dropdown" id="industry-dropdown">
-                Industry
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a href="">Technology</a></li>
-                <li><a href="">Software</a></li>
-                <li><a href="">Energy</a></li>
-                <li><a href="">Gadgets</a></li>
-                <li><a href="">Life Sciences</a></li>
-              </ul>
-            </div>
+            <select id="industry-dropdown" name="industry-dropdown" ng-model="creator.Industry">
+              <option value="" for="industryDropdown" style="display:none">Select an Industry</option>
+              <option value="technology">Technology</a></option>
+              <option value="software">Software</option>
+              <option value="energy">Energy</option>
+              <option value="gadgets">Gadgets</option>
+              <option value="lifeSciences">Life Sciences</option>
+            </select>
           </li>
           <li><input maxlength="8" placeholder="mm/dd/yyyy" ng-model="creator.Start"></li>   
           <li><input maxlength="8" placeholder="mm/dd/yyyy" ng-model="creator.End"></li>
+          <li><input type="text" placeholder="Upload Image by url"><a href=""><i class="fa fa-lg fa-camera image-upload"></i></a></li>
+          <li>
+            <select id="image-dropdown" name="image-dropdown" ng-model="creator.Image">
+              <option value="" style="display:none">OR select a stock image</option>
+              <option value={{image.value}} ng-repeat="image in images">
+                <span >{{image.title}}</span>
+              </option>
+            </select>
+          </li>
         </ul>
       </div>
     </div>

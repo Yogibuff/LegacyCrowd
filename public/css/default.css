@@ -464,6 +464,10 @@ footer {
 #campaign-creator .cardImg {
   margin-top: -10px;
 }
+.creator-added-details > h2 {
+  width: 245px;
+  margin-left: -35px;
+}
 .creator-added-details input {
   width: 240px;
   margin-left: -30px;
@@ -472,7 +476,7 @@ footer {
   margin-bottom: 40px;
 }
 .creator-added-details li {
-  padding: 10px 0px;
+  padding: 5px 0px;
 }
 #creator-container {
   margin-left: 60px;
@@ -486,7 +490,6 @@ footer {
 #creator-target {
   left: 200px;
   top: 90px;
-  margin-left: 26px;
 }
 #creator-model > h3 {
   color:rgba(17,17,17,0.3); height: 25px;
@@ -536,30 +539,36 @@ footer {
   color: white;
   text-decoration: none;
 }
-#industry-dropdown {
+/* #industry-dropdown {
   width: 240px; 
   margin-left: -30px;
-  font-size: 18px;
   padding: 5px 20px;
-  text-align: left;
   background-color: white;
   border-radius: 5px;
-}
-.dropdown-menu {
+}*/
+select {
   width: 240px;
+  height: 35px;
+  margin-bottom: 10px;
   margin-left: -30px;
   padding: 5px 0px;
+  border-radius: 5px;
+}
+option {
+  font-size: 18px;
+  padding: 5px;
   text-align: center;
-  font-size: 16px;
 }
-.dropdown-menu > li > a:hover {
+select > option:hover {
   color: #337AB7;
-  text-decoration: none;
   background-color: #444444;
-  font-size: 20px;
-  transition: background 300ms, font-size 700ms;
-  padding: 8px 0px;
+  transition: background 300ms;
 }
-.caret {
-  margin-left: 110px;
+.image-upload {
+  position: absolute;
+  bottom: 65px;
+  right: 20px;
+}
+#location-label {
+  margin-top: 65px;
 }
