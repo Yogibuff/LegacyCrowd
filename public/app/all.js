@@ -32,6 +32,27 @@ app.controller('creatorCtrl', function($http, $scope) {
       url: '/data'
     });
   }
+  $scope.industry = {
+    singleSelect: null,
+    technology: 'Technology',
+    software: 'Software',
+    energy: 'Energy',
+    gadgets: 'Gadgets',
+    lifeSciences: 'Life Sciences'
+   };
+
+  $scope.images = [
+    {'title': 'Successful Investment',
+     'value': 'investing.jpg'},
+    {'title': 'Enjoy Life',
+     'value': 'happy-surfer.jpg'},
+    {'title': 'Great Teamwork',
+     'value': 'successful-team.jpg'},
+    {'title': 'Improve the Workplace',
+     'value': 'young-professionals.jpg'},
+    {'title': 'Love More',
+     'value': 'surfing-at-sundown.jpg'}
+  ];
 });
 // Retrieves a specific campaign for the full list of campaign details in campaign-viewer.html
 app.controller('campaignViewerCtrl', function($scope, $http) {
