@@ -43,7 +43,7 @@ app.controller('creatorCtrl', function($http, $scope) {
 
   $scope.images = [
     {'title': 'Successful Investment',
-     'value': 'investing.jpg'},
+     'value': 'investing-success.jpg'},
     {'title': 'Enjoy Life',
      'value': 'happy-surfer.jpg'},
     {'title': 'Great Teamwork',
@@ -51,7 +51,9 @@ app.controller('creatorCtrl', function($http, $scope) {
     {'title': 'Improve the Workplace',
      'value': 'young-professionals.jpg'},
     {'title': 'Love More',
-     'value': 'surfing-at-sundown.jpg'}
+     'value': 'surfing-at-sundown.jpg'},
+    {'title': 'Next Generation',
+     'value': 'hand-in-hand.jpg'}
   ];
 });
 // Retrieves a specific campaign for the full list of campaign details in campaign-viewer.html
