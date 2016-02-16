@@ -13,25 +13,12 @@ app.config(function($routeProvider) {
       controller: "creatorCtrl",
       controllerAs: "creator"
     })
-    .when("/campaign-viewer", {
-      templateUrl: "app/views/campaign-viewer.html",
-      controller: "campaign-viewerCtrl",
-      controllerAs: "viewer"
-    });
     // .otherwise({
     //   redirectTo: '/app/views/custom-404.html'
     // });
 });
-// create the legacyCrowdApp module
-//angular.module('legacyCrowdApp', []);
 // Posts a new created campaign to the database
 app.controller('creatorCtrl', function($http, $scope) {
-  function createCampaign() {
-    $http({
-      method: 'POST',
-      url: '/data'
-    });
-  }
   $scope.industry = {
     singleSelect: null,
     technology: 'Technology',
@@ -55,19 +42,6 @@ app.controller('creatorCtrl', function($http, $scope) {
     {'title': 'Next Generation',
      'value': 'hand-in-hand.jpg'}
   ];
-});
-// Retrieves a specific campaign for the full list of campaign details in campaign-viewer.html
-app.controller('campaignViewerCtrl', function($scope, $http) {
-  $http({
-    method: 'GET',
-    url: '/data'
-  })
-  .success(function(data) {
-    console.log("Campaign data retrieved from Mongo database.");
-  })
-  .error(function(data) {
-    console.log('Error. Campaign-viewer angular data request failed.');
-  });
 });
 var app = angular.module('legacyCrowdApp');
 app.controller('homepageCtrl', function($scope, $http) {
