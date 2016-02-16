@@ -171,6 +171,12 @@ body {
   padding: 10px;
   background-color: rgba(17, 17, 17, 0.12);
   border-radius: 7px;
+  transition: all 600ms;
+}
+.cardContainer:hover {
+  box-shadow: inset 0px 0px 30px 5px rgba(17, 17, 17, 0.4);
+  border-radius: 10px;
+  transition: all 600ms;
 }
 .cardImg {
   width: 275px;
@@ -492,7 +498,7 @@ footer {
   top: 90px;
 }
 #creator-model > h3 {
-  color:rgba(17,17,17,0.3); height: 25px;
+  color:rgba(17, 17, 17, 0.3); height: 25px;
   padding-top: 20px;
 }
 #step-three-inner textarea {
